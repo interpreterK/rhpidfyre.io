@@ -1,10 +1,5 @@
-:root {
-	--Montserrat-font: "Montserrat", sans-serif;
-	--DancingScript-font: "Dancing Script", cursive;
-	--light-button-hover: #323232;
-	--font-light-color: #fafafa;
-	--button-hover-speed: .4s;
-}
+// Mobile layout
+@use './layouts/index-style-mobile.scss';
 
 html {
 	scroll-behavior: smooth;
@@ -25,127 +20,137 @@ h1, h2 {
 
 $TopBar: "header > div";
 $MainPage: "main > div";
+$FooterPage: "footer > div";
 
-#{$TopBar} {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	column-gap: 4rem;
-	height: 10vh;
-
-	button {
-		font-family: var(--Montserrat-font);
-		font-size: 1.5em;
-		color: var(--font-light-color);
-		padding: 10px;
-		width: 8em;
-		border: 0;
-	}
-	a {
-		text-decoration: none;
-	}
-	.head-button {
+// Desktop view
+@media only screen and (min-width: 600px) {
+	#{$TopBar} {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex-direction: column;
+		column-gap: 4rem;
+		height: 10vh;
 
-		> span {
-			display: block;
-			width: 1em;
-			height: .1em;
-			background-color: var(--font-light-color);
-			transition: width calc(var(--button-hover-speed, .4s) * 2);
+		button {
+			font-family: var(--Montserrat-font);
+			font-size: 1.5em;
+			color: var(--font-light-color);
+			padding: 10px;
+			width: 8em;
+			border: 0;
 		}
-	}
-	div[data-topbutton="home"] > span {
-		width: 5em;
-	}
-	div[data-topbutton="repos"]:hover > span {
-		width: 90%;
-		transition: width var(--button-hover-speed, .4s);
-	}
-	div[data-topbutton="contact"]:hover > span {
-		width: 60%;
-		transition: width var(--button-hover-speed, .4s);
-	}
-}
-
-#{$MainPage} {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	> div { //Profile Picture and about my GitHub stuff
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		margin-top: 3.5rem;
-		column-gap: 5rem;
-		padding: 10px;
-		max-width: 1920px;
-
-		> img {
-			border-radius: 50%;
-			width: 20em;
+		a {
+			text-decoration: none;
 		}
-		> div {
+		.head-button {
 			display: flex;
-			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			max-width: 65rem;
+			flex-direction: column;
 
-			> :is(h1, h2) {
-				text-align: center;
-				margin: 0;
+			> span {
+				display: block;
+				width: 1em;
+				height: .1em;
+				background-color: var(--font-light-color);
+				transition: width calc(var(--button-hover-speed, .4s) * 2);
 			}
-			> h1 {
-				font-family: var(--DancingScript-font);
-				font-size: 5em;
-				margin-bottom: .5em;
-			}
-			> h2 {
-				font-size: 2.5em;
-				margin-bottom: 1em;
+		}
+		div[data-topbutton="home"] > span {
+			width: 5em;
+		}
+		div[data-topbutton="repos"]:hover > span {
+			width: 90%;
+			transition: width var(--button-hover-speed, .4s);
+		}
+		div[data-topbutton="contact"]:hover > span {
+			width: 60%;
+			transition: width var(--button-hover-speed, .4s);
+		}
+	}
 
-				> span[data-gradtype="software"] {
-					background-image: linear-gradient(16deg, #3500ff 0%, #ff00d9 100%);
-					background-clip: text;
-					color: transparent;
-				}
-				> span[data-gradtype="web"] {
-					background-image: linear-gradient(16deg, #0050ff 0%, #00ffb5 100%);
-					background-clip: text;
-					color: transparent;
-				}
+	#{$MainPage} {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		> div { //Profile Picture and about my GitHub stuff
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			margin-top: 3.5rem;
+			column-gap: 5rem;
+			padding: 10px;
+			max-width: 1920px;
+
+			> img {
+				border-radius: 50%;
+				width: 20em;
 			}
 			> div {
 				display: flex;
-				flex-direction: row;
-				justify-content: space-evenly;
+				flex-direction: column;
+				justify-content: center;
 				align-items: center;
-				width: 80%;
+				max-width: 65rem;
 
-				button {
-					font-family: var(--Montserrat-font);
-					font-weight: bold;
-					font-size: 1.3em;
-					color: var(--font-light-color);
-					border: 2px solid white;
-					padding: 15px;
-					width: 13em;
-					transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
+				> :is(h1, h2) {
+					text-align: center;
+					margin: 0;
+				}
+				> h1 {
+					font-family: var(--DancingScript-font);
+					font-size: 5em;
+					margin-bottom: .5em;
+				}
+				> h2 {
+					font-size: 2.5em;
+					margin-bottom: 1em;
 
-					&:hover {
-						background-color: white;
-						color: black;
-						border-radius: 10px;
+					> span[data-gradtype="software"] {
+						background-image: linear-gradient(16deg, #3500ff 0%, #ff00d9 100%);
+						background-clip: text;
+						color: transparent;
+					}
+					> span[data-gradtype="web"] {
+						background-image: linear-gradient(16deg, #0050ff 0%, #00ffb5 100%);
+						background-clip: text;
+						color: transparent;
+					}
+				}
+				> div {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-evenly;
+					align-items: center;
+					width: 80%;
+
+					button {
+						font-family: var(--Montserrat-font);
+						font-weight: bold;
+						font-size: 1.3em;
+						color: var(--font-light-color);
+						border: 2px solid white;
+						padding: 15px;
+						width: 13em;
 						transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
+
+						&:hover {
+							background-color: white;
+							color: black;
+							border-radius: 10px;
+							transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
+						}
 					}
 				}
 			}
 		}
-	}
+
+		// Bottom section
+		> section {
+			background-color: var(--main-section-color1);
+			width: 100vw;
+		}
+	}	
 }
