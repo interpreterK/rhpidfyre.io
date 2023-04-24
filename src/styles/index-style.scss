@@ -30,7 +30,7 @@ $MainPage: "main > div";
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	column-gap: 20px;
+	column-gap: 4rem;
 	height: 10vh;
 
 	button {
@@ -55,7 +55,7 @@ $MainPage: "main > div";
 			width: 1em;
 			height: .1em;
 			background-color: var(--font-light-color);
-			transition: width calc(var(--button-hover-speed) * 2);
+			transition: width calc(var(--button-hover-speed, .4s) * 2);
 		}
 	}
 	div[data-topbutton="home"] > span {
@@ -63,11 +63,11 @@ $MainPage: "main > div";
 	}
 	div[data-topbutton="repos"]:hover > span {
 		width: 90%;
-		transition: width var(--button-hover-speed);
+		transition: width var(--button-hover-speed, .4s);
 	}
 	div[data-topbutton="contact"]:hover > span {
 		width: 60%;
-		transition: width var(--button-hover-speed);
+		transition: width var(--button-hover-speed, .4s);
 	}
 }
 
@@ -82,6 +82,7 @@ $MainPage: "main > div";
 		justify-content: space-evenly;
 		align-items: center;
 		margin-top: 3.5rem;
+		column-gap: 5rem;
 		padding: 10px;
 		max-width: 1920px;
 
@@ -110,12 +111,12 @@ $MainPage: "main > div";
 				margin-bottom: 1em;
 
 				> span[data-gradtype="software"] {
-					background-image: linear-gradient(16deg, #091679 0%, #a400ff 100%);
+					background-image: linear-gradient(16deg, #3500ff 0%, #ff00d9 100%);
 					background-clip: text;
 					color: transparent;
 				}
 				> span[data-gradtype="web"] {
-					background-image: linear-gradient(16deg, #0f0979 0%, #00ffb5 100%);
+					background-image: linear-gradient(16deg, #0050ff 0%, #00ffb5 100%);
 					background-clip: text;
 					color: transparent;
 				}
@@ -127,20 +128,21 @@ $MainPage: "main > div";
 				align-items: center;
 				width: 80%;
 
-				> button {
+				button {
 					font-family: var(--Montserrat-font);
 					font-weight: bold;
 					font-size: 1.3em;
 					color: var(--font-light-color);
 					border: 2px solid white;
 					padding: 15px;
-					transition: background-color var(--button-hover-speed), color var(--button-hover-speed), border-radius var(--button-hover-speed);
+					width: 13em;
+					transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
 
 					&:hover {
 						background-color: white;
 						color: black;
 						border-radius: 10px;
-						transition: background-color var(--button-hover-speed), color var(--button-hover-speed), border-radius var(--button-hover-speed);
+						transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
 					}
 				}
 			}
