@@ -1,3 +1,3 @@
 import GitHubCalendar from 'github-calendar'
 
-GitHubCalendar()
+GitHubCalendar(".github-calendar", "interpreterK")
