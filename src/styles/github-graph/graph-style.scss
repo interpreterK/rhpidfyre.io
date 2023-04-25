@@ -1,0 +1,29 @@
+$color-calendar-graph-day-bg: #dddbdb;
+$color-calendar-graph-day-L1-bg: #39dd34;
+$color-calendar-graph-day-L2-bg: #45a045;
+$color-calendar-graph-day-L3-bg: #047526;
+$color-calendar-graph-day-L4-bg: #0a4208;
+
+rect.ContributionCalendar-day[data-level='0'] {
+    fill: $color-calendar-graph-day-bg;
+}
+
+rect.ContributionCalendar-day[data-level='1'] {
+    fill: $color-calendar-graph-day-L1-bg;
+}
+
+rect.ContributionCalendar-day[data-level='2'] {
+    fill: $color-calendar-graph-day-L2-bg;
+}
+
+rect.ContributionCalendar-day[data-level='3'] {
+    fill: $color-calendar-graph-day-L3-bg;
+}
+
+rect.ContributionCalendar-day[data-level='4'] {
+    fill: $color-calendar-graph-day-L4-bg;
+}
+
+.github-calendar {
+	color: white;
+}

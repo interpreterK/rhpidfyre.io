@@ -1,19 +1,24 @@
 // Mobile layout
 @use './layouts/index-style-mobile.scss';
+@use './github-graph/graph-style.scss';
 
-$TopBar: "header > div";
-$MainPage: "main > div";
-$FooterPage: "footer > div";
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 4rem;
+	height: 10vh;
 
-// Desktop view
-@media only screen and (min-width: 600px) {
-	#{$TopBar} {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		column-gap: 4rem;
-		height: 10vh;
+	@mixin topbar-button-hover($pointer, $button-data-name, $width) {
+		#{$pointer}[data-topbutton=#{$button-data-name}]:hover > span {
+			width: $width;
+			transition: width var(--button-hover-speed, .4s);
+		}
+	}
 
+	> a {
+		text-decoration: none;
+		
 		button {
 			font-family: var(--Montserrat-font);
 			font-size: 1.5em;
@@ -22,118 +27,121 @@ $FooterPage: "footer > div";
 			width: 8em;
 			border: 0;
 		}
-		a {
-			text-decoration: none;
-		}
-		.head-button {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
+	}
+	.head-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 
-			> span {
-				display: block;
-				width: 1em;
-				height: .1em;
-				background-color: var(--font-light-color);
-				transition: width calc(var(--button-hover-speed, .4s) * 2);
-			}
+		> span {
+			display: block;
+			width: 1em;
+			height: .1em;
+			background-color: var(--font-light-color);
+			transition: width calc(var(--button-hover-speed, .4s) * 2);
 		}
-		div[data-topbutton="home"] > span {
-			width: 5em;
-		}
-		div[data-topbutton="repos"]:hover > span {
-			width: 90%;
-			transition: width var(--button-hover-speed, .4s);
-		}
-		div[data-topbutton="contact"]:hover > span {
-			width: 60%;
-			transition: width var(--button-hover-speed, .4s);
+	}
+	div[data-topbutton="home"] > span {
+		width: 5em;
+	}
+
+	//Topbar Hover effects
+	@include topbar-button-hover("div", "repos", 90%);
+	@include topbar-button-hover("div", "contact", 60%);
+	@include topbar-button-hover("div", "plans", 40%);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	$Button-Hover-Effect: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
+
+	@mixin text-gradient($pointer, $text-data-name, $grad-color-1, $grad-color-2) {
+		#{$pointer}[data-gradtype=#{$text-data-name}] {
+			background-image: linear-gradient(16deg, $grad-color-1 0%, $grad-color-2 100%);
+			background-clip: text;
+			color: transparent;
 		}
 	}
 
-	#{$MainPage} {
+	> div { //Profile Picture and about my GitHub stuff
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
+		margin-top: 3.5rem;
+		column-gap: 5rem;
+		padding: 10px;
+		max-width: 1920px;
 
-		> div { //Profile Picture and about my GitHub stuff
+		> img {
+			border-radius: 50%;
+			width: 20em;
+		}
+		> div {
 			display: flex;
-			justify-content: space-evenly;
+			flex-direction: column;
+			justify-content: center;
 			align-items: center;
-			margin-top: 3.5rem;
-			column-gap: 5rem;
-			padding: 10px;
-			max-width: 1920px;
+			max-width: 65rem;
 
-			> img {
-				border-radius: 50%;
-				width: 20em;
+			> :is(h1, h2) {
+				text-align: center;
+				margin: 0;
+			}
+			> h1 {
+				font-family: var(--DancingScript-font);
+				font-size: 5em;
+				margin-bottom: .5em;
+			}
+			> h2 {
+				font-size: 2.5em;
+				margin-bottom: 1em;
+
+				@include text-gradient("> span", "software", #3500ff, #ff00d9);
+				@include text-gradient("> span", "web", #0050ff, #00ffb5);
 			}
 			> div {
 				display: flex;
-				flex-direction: column;
-				justify-content: center;
+				flex-direction: row;
+				justify-content: space-evenly;
 				align-items: center;
-				max-width: 65rem;
+				width: 80%;
 
-				> :is(h1, h2) {
-					text-align: center;
-					margin: 0;
-				}
-				> h1 {
-					font-family: var(--DancingScript-font);
-					font-size: 5em;
-					margin-bottom: .5em;
-				}
-				> h2 {
-					font-size: 2.5em;
-					margin-bottom: 1em;
+				button {
+					font-family: var(--Montserrat-font);
+					font-weight: bold;
+					font-size: 1.3em;
+					color: var(--font-light-color);
+					border: 2px solid white;
+					padding: 15px;
+					width: 13em;
+					transition: $Button-Hover-Effect;
 
-					> span[data-gradtype="software"] {
-						background-image: linear-gradient(16deg, #3500ff 0%, #ff00d9 100%);
-						background-clip: text;
-						color: transparent;
-					}
-					> span[data-gradtype="web"] {
-						background-image: linear-gradient(16deg, #0050ff 0%, #00ffb5 100%);
-						background-clip: text;
-						color: transparent;
-					}
-				}
-				> div {
-					display: flex;
-					flex-direction: row;
-					justify-content: space-evenly;
-					align-items: center;
-					width: 80%;
-
-					button {
-						font-family: var(--Montserrat-font);
-						font-weight: bold;
-						font-size: 1.3em;
-						color: var(--font-light-color);
-						border: 2px solid white;
-						padding: 15px;
-						width: 13em;
-						transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
-
-						&:hover {
-							background-color: white;
-							color: black;
-							border-radius: 10px;
-							transition: background-color var(--button-hover-speed, .4s), color var(--button-hover-speed, .4s), border-radius var(--button-hover-speed, .4s);
-						}
+					&:hover {
+						background-color: white;
+						color: black;
+						border-radius: 10px;
+						transition: $Button-Hover-Effect;
 					}
 				}
 			}
 		}
+	}
 
-		// Bottom section
-		> section {
-			background-color: var(--main-section-color1);
-			width: 100vw;
+	// Main bottom section
+	> section {
+		background-color: var(--main-section-color1);
+		width: 100vw;
+
+		> div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
 		}
-	}	
+	}
 }
