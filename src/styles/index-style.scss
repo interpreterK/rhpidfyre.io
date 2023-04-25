@@ -1,23 +1,6 @@
 // Mobile layout
 @use './layouts/index-style-mobile.scss';
 
-html {
-	scroll-behavior: smooth;
-}
-body {
-	margin: 0;
-	overflow-x: hidden;
-	background-color: #303841;
-}
-button {
-	cursor: pointer;
-	background-color: transparent;
-}
-h1, h2 {
-	font-family: var(--Montserrat-font);
-	color: var(--font-light-color);
-}
-
 $TopBar: "header > div";
 $MainPage: "main > div";
 $FooterPage: "footer > div";
