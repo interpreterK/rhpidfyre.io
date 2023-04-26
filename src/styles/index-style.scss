@@ -47,9 +47,9 @@ header {
 	}
 
 	//Topbar Hover effects
-	@include topbar-button-hover("div", "repos", 90%);
-	@include topbar-button-hover("div", "contact", 60%);
-	@include topbar-button-hover("div", "plans", 40%);
+	@include topbar-button-hover('div', "repos", 90%);
+	@include topbar-button-hover('div', "contact", 60%);
+	@include topbar-button-hover('div', "plans", 40%);
 }
 
 main {
@@ -101,8 +101,8 @@ main {
 				font-size: 2.5em;
 				margin-bottom: 1em;
 
-				@include text-gradient("> span", "software", #3500ff, #ff00d9);
-				@include text-gradient("> span", "web", #0050ff, #00ffb5);
+				@include text-gradient('> span', "software", #3500ff, #ff00d9);
+				@include text-gradient('> span', "web", #0050ff, #00ffb5);
 			}
 			> div {
 				display: flex;
@@ -139,9 +139,30 @@ main {
 
 		> div {
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
+			flex-direction: row;
+
+			> div {
+				display: flex;
+				row-gap: 1em;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+
+				> div:nth-of-type(1) { //Select github and git container
+					display: flex;
+					flex-direction: row;
+					column-gap: 2em;
+
+					> a {
+						text-decoration: none;
+
+						> img {
+							width: 170px;
+						}	
+					}
+				}
+			}
 		}
 	}
 }

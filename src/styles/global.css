@@ -3,8 +3,13 @@
 	--DancingScript-font: "Dancing Script", cursive;
 	--light-button-hover: #323232;
 	--font-light-color: #fafafa;
-	--button-hover-speed: .4s;
 	--main-section-color1: #2d61cc;
+	--button-hover-speed: .4s;
+}
+
+::selection {
+	background-color: #7f76ff;
+	color: white;
 }
 
 html {
