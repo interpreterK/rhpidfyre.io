@@ -1,0 +1,72 @@
+:root {
+	--Montserrat-font: "Montserrat", sans-serif;
+	--DancingScript-font: "Dancing Script", cursive;
+	--light-button-hover: #323232;
+	--font-light-color: #fafafa;
+	--main-section-color1: #2550a7;
+	--main-section-color1_2: #1e428a;
+	--main-background-color: #303841;
+	--button-hover-speed: .4s;
+}
+
+::selection {
+	background-color: #7f76ff;
+	color: white;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background-color: var(--main-background-color);
+}
+button {
+	cursor: pointer;
+	background-color: transparent;
+}
+h1, h2 {
+	font-family: var(--Montserrat-font);
+	color: var(--font-light-color);
+}
+
+aside > #loading-window {
+	display: flex;
+	background-color: var(--main-background-color);
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	z-index: 9e2;
+	position: fixed;
+  	transition: opacity .5s linear;
+  	
+	> #loading-anim {
+		display: inline-block;
+		width: 80px;
+		height: 80px;
+
+		&:after {
+			content: ' ';
+			display: block;
+			width: 64px;
+			height: 64px;
+			margin: 8px;
+			border: 6px solid #fff {
+				radius: 50%;
+				color: #fff transparent #fff transparent;
+			};
+			animation: loading-anim 1.5s linear infinite;
+		}
+	}
+}
+
+@keyframes loading-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

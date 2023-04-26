@@ -20,8 +20,10 @@ header {
 		text-decoration: none;
 		
 		button {
-			font-family: var(--Montserrat-font);
-			font-size: 1.5em;
+			font: {
+				family: var(--Montserrat-font);
+				size: 1.5em
+			};
 			color: var(--font-light-color);
 			padding: 10px;
 			width: 8em;
@@ -77,9 +79,15 @@ main {
 		padding: 10px;
 		max-width: 1920px;
 
-		> img {
+		img {
 			border-radius: 50%;
 			width: 20em;
+			transition: width var(--button-hover-speed);
+
+			&:hover {
+				width: 20.5em;
+				transition: width var(--button-hover-speed);
+			}
 		}
 		> div {
 			display: flex;
@@ -93,8 +101,10 @@ main {
 				margin: 0;
 			}
 			> h1 {
-				font-family: var(--DancingScript-font);
-				font-size: 5em;
+				font: {
+					family: var(--DancingScript-font);
+					size: 5em;
+				};
 				margin-bottom: .5em;
 			}
 			> h2 {
@@ -103,6 +113,7 @@ main {
 
 				@include text-gradient('> span', "software", #3500ff, #ff00d9);
 				@include text-gradient('> span', "web", #0050ff, #00ffb5);
+				@include text-gradient('> span', "game", #ffcb00, #ff00bf)
 			}
 			> div {
 				display: flex;
@@ -112,9 +123,11 @@ main {
 				width: 80%;
 
 				button {
-					font-family: var(--Montserrat-font);
-					font-weight: bold;
-					font-size: 1.3em;
+					font: {
+						family: var(--Montserrat-font);
+						weight: bold;
+						size: 1.3em;
+					}
 					color: var(--font-light-color);
 					border: 2px solid white;
 					padding: 15px;
@@ -137,17 +150,28 @@ main {
 		background-color: var(--main-section-color1);
 		width: 100vw;
 
-		> div {
+		> div { //Version control section
 			display: flex;
 			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
 
 			> div {
 				display: flex;
 				row-gap: 1em;
-				flex-direction: row;
+				flex-direction: column;
 				justify-content: center;
 				align-items: center;
 				text-align: center;
+
+				> h1 {
+					font-size: 2.5em;
+					margin-bottom: 0
+				}
+				> h2 {
+					font-weight: normal;
+					margin-top: 0
+				}
 
 				> div:nth-of-type(1) { //Select github and git container
 					display: flex;
@@ -158,10 +182,32 @@ main {
 						text-decoration: none;
 
 						> img {
-							width: 170px;
+							width: 150px;
 						}	
 					}
 				}
+			}
+		}
+
+		> #seperator {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			> span {
+				display: block;
+				width: 80vw;
+				height: .4rem;
+				border-radius: 20px;
+				background-color: var(--main-background-color);
+				margin: 15px 0 15px 0;
+			}
+		}
+		> #linux-section { //Linux section
+			margin-top: 3em;
+
+			#linux-tux {
+				width: 250px;
 			}
 		}
 	}
