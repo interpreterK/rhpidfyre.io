@@ -38,16 +38,24 @@ $Header-Span-hover-time: .8s;
 			@include global.flex-it(center, center, column);
 			text-decoration: none;
 
+			//Hax
 			@if $active-button-selection == "Home" {
-				span[data-head-span="Home"] {
+				button[data-head-button=#{$active-button-selection}] {
+					font-weight: bold;
+				}
+				span[data-head-span=#{$active-button-selection}] {
 					width: 6em;
 				}
 			} @else {
+				//hi, I cant pass $active-button-selection as the first argument and concatenate -05/22/23
 				@include hover-span("Home", 6em);
 			}
 
 			@if $active-button-selection == "Repositories" {
-				span[data-head-span="Repositories"] {
+				button[data-head-button=#{$active-button-selection}] {
+					font-weight: bold;
+				}
+				span[data-head-span=#{$active-button-selection}] {
 					width: 12em;
 				}
 			} @else {
@@ -55,7 +63,10 @@ $Header-Span-hover-time: .8s;
 			}
 
 			@if $active-button-selection == "Contact" {
-				span[data-head-span="Contact"] {
+				button[data-head-button=#{$active-button-selection}] {
+					font-weight: bold;
+				}
+				span[data-head-span=#{$active-button-selection}] {
 					width: 8em;
 				}
 			} @else {
@@ -65,7 +76,7 @@ $Header-Span-hover-time: .8s;
 
 		button {
 			font: {
-				family: global.$Montserrat;
+				family: var(--Montserrat-font);
 				size: 1.4em;
 			};
 			letter-spacing: 3px;

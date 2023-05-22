@@ -1,4 +1,6 @@
-$Montserrat: "Montserrat", sans-serif;
+:root {
+	--Montserrat-font: "Montserrat", sans-serif;
+}
 
 @function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
 	@return min($min-vw, $min-max);

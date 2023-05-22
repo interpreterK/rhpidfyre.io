@@ -5,70 +5,108 @@
 
 @include header.topbar-header("Home");
 
-@mixin text-animation-loadin($anim-name, $start-size) {
-	@keyframes #{$anim-name} {
-		0% {
-			width: $start-size;
-		}
-		100% {
-			width: 0;
-		}
-	}
-}
-
 main {
-	@include global.flex-it(space-evenly, center);
-	width: global.real-viewbox(80vw);
-	height: 80vh;
-	
-	#GitHub-pfp {
-		border-radius: 50%;
-		width: 330px;
-		transition: width .5s, transform 1s;
-		
-		&:hover {
-			width: 340px;
-			transform: rotate(360deg);
-			transition: width .5s, transform 1.5s;
-		}
+	@include global.flex-it(center, center, column);
 
-		@media (prefers-reduced-motion) {
+	> #pfp-name-section {
+		@include global.flex-it(space-evenly, center, row);
+
+		width: global.real-viewbox(95vw);
+		height: 80vh;
+		margin-bottom: 8rem;
+	
+		#GitHub-pfp {
+			border-radius: 50%;
+			width: 330px;
+			transition: width .5s, transform 1s;
+			
 			&:hover {
-				transform: rotate(0deg) !important;
+				width: 340px;
+				transform: rotate(360deg);
+				transition: width .5s, transform 1.5s;
+			}
+
+			@media (prefers-reduced-motion) {
+				&:hover {
+					transform: rotate(0deg) !important;
+				}
 			}
 		}
-	}
-	//Convert ::after 'pseudo' or ::before to a span block
-	@mixin pseudo-to-span($width: auto, $bottom, $color: black) {
-		display: block;
-		background-color: $color;
-		width: $width;
-		height: 1.1em;
-		bottom: $bottom;
-		position: relative;
-	}
-	
-	h1, h2 {
-		text-align: center;
-	}
-
-	@include text-animation-loadin("", 3.3rem);
-
-	h1 {
-		font: {
-			family: global.$Montserrat;
-			size: 3em;
+		//Convert ::after 'pseudo' or ::before to a span block
+		@mixin pseudo-to-span($anim-name, $start-length, $width: auto, $bottom: unset, $color: black) {
+			@keyframes #{$anim-name} {
+				0% {
+					width: $start-length;
+				}
+				100% {
+					width: 0;
+				}
+			}
+			
+			display: block;
+			background-color: $color;
+			width: $width;
+			height: 1.1em;
+			bottom: $bottom; //fix this
+			border: .5px solid white {
+				radius: 10px;
+			};
+			animation: 1s ease-out .5s 1 forwards $anim-name;
+			transition: 2s height .5s;
+		}
+		
+		h1, h2 {
+			text-align: center;
 		}
 
-		&::after {
-			content: '';
+		#h1-user {
+			font: {
+				family: var(--Montserrat-font);
+				size: 3.5em;
+			}
+			margin: {
+				bottom: .4em;
+				top: 0;
+			};
 
-			@include pseudo-to-span(10em, 3.3rem);
-			transition: width 1s;
+			&::after {
+				content: '';
+
+				//@include pseudo-to-span("h1-user-anim", 10em, 10em, 11.3em);
+			}
+		}
+		
+		#h2-user {
+			font: {
+				family: var(--Montserrat-font);
+				size: 1.5em;
+				weight: normal;
+			}
+			margin-top: 0;
 		}
 	}
 	
-	h2 {
 
+	> #bottom-section {
+		@include global.flex-it(center);
+
+		background-color: #0a0a0f;
+		width: 100vw;
+		height: 100vh;
+
+		> #web-section {
+			@include global.flex-it(space-evenly, center);
+
+			width: 70vw;
+			height: 40vh;
+
+			h1 {
+				text-align: center;
+			}
+		}
+
+		#HTML5-logo {
+
+		}
 	}
 }

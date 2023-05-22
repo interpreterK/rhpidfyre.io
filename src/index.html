@@ -2,12 +2,12 @@
 <!--
 This Soucre Code is licensed under the GPL v. 2.0
 -->
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=0">
-	<title>interpreterK's Portfolio</title>
+	<title>interpreterK's Portfolio | Home</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -18,30 +18,46 @@ This Soucre Code is licensed under the GPL v. 2.0
 	<header>
 		<div id="header-buttons">
 			<a href="">
-				<button>Home</button>
+				<button data-head-button="Home">Home</button>
 				<span data-head-span="Home"></span>
 			</a>
 			<a href="">
-				<button>Repositories</button>
+				<button data-head-button="Repositories">Repositories</button>
 				<span data-head-span="Repositories"></span>
 			</a>
 			<a href="">
-				<button>Contact</button>
+				<button data-head-button="Contact">Contact</button>
 				<span data-head-span="Contact"></span>
 			</a>
 		</div>
 	</header>
 	<main>
-		<div>
-			<a href="https://github.com/interpreterK" target="_blank" rel="nofollow">
-				<img src="https://avatars.githubusercontent.com/u/80614657" alt="interpreterK's GitHub Profile Picture." id="GitHub-pfp">
-			</a>
-		</div>
-		<div>
-			<h1>interpreterK</h1>
-			<h2>I'm a programmer of all things,</h2>
-		</div>
+		<!--GitHub PFP & Name, about-->
+		<section id="pfp-name-section">
+			<div>
+				<a href="https://github.com/interpreterK" target="_blank" rel="nofollow">
+					<img src="https://avatars.githubusercontent.com/u/80614657" alt="interpreterK's GitHub Proœfile Picture." id="GitHub-pfp">
+				</a>
+			</div>
+			<div>
+				<h1 id="h1-user">interpreterK</h1>
+				<h2 id="h2-user">I'm a programmer with: Software, Web, and Games.</h2>
+			</div>
+			<div class="github-calendar"></div>
+		</section>
+		<!--Bottom Section-->
+		<section id="bottom-section">
+			<div id="web-section">
+				<img src="./public/WebLangsGrid.webp" width="250" height="250" alt="HTML5 Powered" title="HTML5 Powered">
+				<div>
+					<h1>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h1>
+				</div>
+			</div>
+		</section>
 	</main>
-	<footer></footer>
+	<footer>
+		
+	</footer>
+
 </body>
 </html>
