@@ -1,0 +1,81 @@
+@use './global';
+
+$Header-Span-hover-time: .8s;
+
+//Any formulas or tricks for getting the text length to width?
+//calc(textLength + 1em)
+//5/20/23
+@mixin hover-span($data-name, $width: auto) {
+	&:hover > span[data-head-span=#{$data-name}] { //Mixins may not contain mixin declarations.
+		width: $width;
+		//It's suppose to push the others on hover, I like it
+		transition: width calc($Header-Span-hover-time / 2);
+	}
+}
+
+@mixin topbar-header($active-button-selection) {
+	header {
+		@include global.flex-it(center, center);
+		width: 100vw;
+		height: 4rem;
+		margin-top: 1em;
+
+		span {
+			display: block;
+			background-color: black;
+			width: 1em;
+			height: 2px;
+			transition: width $Header-Span-hover-time;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			span {
+				background-color: white;
+			}
+		}
+
+		a {
+			@include global.flex-it(center, center, column);
+			text-decoration: none;
+
+			@if $active-button-selection == "Home" {
+				span[data-head-span="Home"] {
+					width: 6em;
+				}
+			} @else {
+				@include hover-span("Home", 6em);
+			}
+
+			@if $active-button-selection == "Repositories" {
+				span[data-head-span="Repositories"] {
+					width: 12em;
+				}
+			} @else {
+				@include hover-span("Repositories", 12em);
+			}
+
+			@if $active-button-selection == "Contact" {
+				span[data-head-span="Contact"] {
+					width: 8em;
+				}
+			} @else {
+				@include hover-span("Contact", 8em);
+			}
+		}
+
+		button {
+			font: {
+				family: global.$Montserrat;
+				size: 1.4em;
+			};
+			letter-spacing: 3px;
+			background-color: transparent;
+			padding: .4em 0 .4em 0;
+		}
+
+		> #header-buttons {
+			@include global.flex-it(space-evenly);
+			width: global.real-viewbox(70vw);
+		}
+	}
+}

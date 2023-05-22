@@ -1,0 +1,34 @@
+$Montserrat: "Montserrat", sans-serif;
+
+@function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
+	@return min($min-vw, $min-max);
+}
+
+@mixin flex-it($justify: unset, $align: unset, $direction: row, $gap: unset) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+
+	@if $direction == row { //Short circuits please?
+		column-gap: $gap;
+	} @else {
+		row-gap: $gap;
+	}
+}
+
+html {
+	color-scheme: light dark;
+}
+
+body {
+	margin: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	@include flex-it(center, center, column)
+}
+
+button {
+	cursor: pointer;
+	border: 0;
+}

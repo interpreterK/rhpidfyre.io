@@ -1,0 +1,20 @@
+{
+  "name": "rhpidfyre.io",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm update && vite",
+    "build": "npm update && vite build",
+    "preview": "npm update && vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.3.2"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "github-calendar": "^2.3.2",
+    "sass": "^1.62.1",
+    "three": "^0.152.2"
+  }
+}
