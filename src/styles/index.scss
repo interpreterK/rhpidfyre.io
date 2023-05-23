@@ -90,7 +90,7 @@ main {
 	> #bottom-section {
 		@include global.flex-it(center);
 
-		background-color: #0a0a0f;
+		background-color: var(--Page-Secondary);
 		width: 100vw;
 		height: 100vh;
 

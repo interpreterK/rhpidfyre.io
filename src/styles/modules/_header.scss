@@ -14,16 +14,24 @@ $Header-Span-hover-time: .8s;
 }
 
 @mixin topbar-header($active-button-selection) {
+	$trans-speed: .5s;
+
 	header {
 		@include global.flex-it(center, center);
 		width: 100vw;
 		height: 4rem;
 		margin-top: 1em;
+		border: 0;
 		top: -1px;
 		position: sticky;
+		transition: background-color calc($trans-speed / 2), height calc($trans-speed / 2), border-bottom calc($trans-speed / 2);
 
-		&.stick {
-			
+		&.stuck {
+			background-color: var(--Header-Color);
+			height: 6rem;
+			border-bottom: 1px solid #828282;
+			z-index: 2; //Spinny pfp likes to go above the header
+			transition: background-color $trans-speed, height $trans-speed, border-bottom $trans-speed;
 		}
 
 		span {
@@ -53,7 +61,7 @@ $Header-Span-hover-time: .8s;
 					width: 6em;
 				}
 			} @else {
-				//hi, I cant pass $active-button-selection as the first argument and concatenate -05/22/23
+				//Cant pass $active-button-selection as the first argument and concatenate -05/22/23
 				@include hover-span("Home", 6em);
 			}
 

@@ -1,5 +1,7 @@
 :root {
 	--Montserrat-font: "Montserrat", sans-serif;
+	--Page-Secondary: #0a0a0f;
+	--Header-Color: #0f0f19;
 }
 
 @function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
