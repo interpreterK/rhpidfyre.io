@@ -2,8 +2,18 @@
 
 @use 'modules/global';
 @use 'modules/header';
+@use 'modules/graph';
 
 @include header.topbar-header("Home");
+
+#gl-scene {
+	width: 100vw;
+	height: 100vh;
+	// user-select: none;
+	// pointer-events: none;
+	// z-index: -1; //This works lol
+	// position: absolute
+}
 
 main {
 	@include global.flex-it(center, center, column);
@@ -13,7 +23,6 @@ main {
 
 		width: global.real-viewbox(95vw);
 		height: 80vh;
-		margin-bottom: 8rem;
 	
 		#GitHub-pfp {
 			border-radius: 50%;
@@ -55,34 +64,38 @@ main {
 			transition: 2s height .5s;
 		}
 		
-		h1, h2 {
-			text-align: center;
-		}
+		> div:nth-of-type(2) { //Select the div with my name and github graph
+			margin-top: 10rem;
 
-		#h1-user {
-			font: {
-				family: var(--Montserrat-font);
-				size: 3.5em;
+			h1, h2 {
+				text-align: center;
 			}
-			margin: {
-				bottom: .4em;
-				top: 0;
-			};
 
-			&::after {
-				content: '';
+			#h1-user {
+				font: {
+					family: var(--Montserrat-font);
+					size: 3.5em;
+				}
+				margin: {
+					bottom: .4em;
+					top: 0;
+				};
 
-				//@include pseudo-to-span("h1-user-anim", 10em, 10em, 11.3em);
+				&::after {
+					content: '';
+
+					//@include pseudo-to-span("h1-user-anim", 10em, 10em, 11.3em);
+				}
 			}
-		}
-		
-		#h2-user {
-			font: {
-				family: var(--Montserrat-font);
-				size: 1.5em;
-				weight: normal;
+			
+			#h2-user {
+				font: {
+					family: var(--Montserrat-font);
+					size: 1.5em;
+					weight: normal;
+				}
+				margin-top: 0;
 			}
-			margin-top: 0;
 		}
 	}
 	
@@ -93,6 +106,8 @@ main {
 		background-color: var(--Page-Secondary);
 		width: 100vw;
 		height: 100vh;
+		border-top: 1px solid var(--Border-Color);
+		margin-top: 7rem;
 
 		> #web-section {
 			@include global.flex-it(space-evenly, center);
@@ -105,8 +120,6 @@ main {
 			}
 		}
 
-		#HTML5-logo {
 
-		}
 	}
 }

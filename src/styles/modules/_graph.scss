@@ -1,0 +1,76 @@
+$color-calendar-graph-day-bg: #323241;
+$color-calendar-graph-day-L1-bg: #0069ff;
+$color-calendar-graph-day-L2-bg: #004ab3;
+$color-calendar-graph-day-L3-bg: #003580;
+$color-calendar-graph-day-L4-bg: #00204d;
+
+.github-calendar {
+    font: {
+        family: var(--Montserrat-font);
+        weight: bold;
+    }
+    // border: 1px solid #828282 {
+    //     radius: 10px;
+    // };
+	color: white;
+    padding: 1.5em;
+
+    rect.ContributionCalendar-day[data-level='0'] {
+        fill: $color-calendar-graph-day-bg;
+    }
+    rect.ContributionCalendar-day[data-level='1'] {
+        fill: $color-calendar-graph-day-L1-bg;
+    }
+    rect.ContributionCalendar-day[data-level='2'] {
+        fill: $color-calendar-graph-day-L2-bg;
+    }
+    rect.ContributionCalendar-day[data-level='3'] {
+        fill: $color-calendar-graph-day-L3-bg;
+    }
+    rect.ContributionCalendar-day[data-level='4'] {
+        fill: $color-calendar-graph-day-L4-bg;
+    }
+    text { //Hide days of the week within the calendar
+        display: none
+    }
+    //Anchors
+    a {
+        text-decoration: none;
+    }
+    a[href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"],
+    .js-activity-overview-graph-container,
+    .text-normal,
+    .flex-lg-row,
+    .contrib-column {
+        display: none;
+    }
+    .js-org-filter-link {
+        color: var(--font-color)
+    }
+    //--
+    .avatar, .mr-1 { 
+        width: 30px;
+        height: 30px;
+        top: 12px;
+        position: relative;
+        border: 1px solid #aaaaaa {
+            radius: 10px;
+        };
+        padding: .2em;
+    }
+    .width-full {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: .5em;
+    }
+    .subnav { //Contribution icons and titles
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 2em;
+    }
+    div[aria-hidden="true"] {
+        font-weight: normal;
+    }
+}

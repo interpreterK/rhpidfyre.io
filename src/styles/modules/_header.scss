@@ -15,23 +15,29 @@ $Header-Span-hover-time: .8s;
 
 @mixin topbar-header($active-button-selection) {
 	$trans-speed: .5s;
+	$trans-speed-calc: calc($trans-speed / 2);
 
 	header {
 		@include global.flex-it(center, center);
 		width: 100vw;
 		height: 4rem;
-		margin-top: 1em;
+		padding-top: 1em;
 		border: 0;
 		top: -1px;
 		position: sticky;
-		transition: background-color calc($trans-speed / 2), height calc($trans-speed / 2), border-bottom calc($trans-speed / 2);
+		transition: 
+			background-color $trans-speed-calc, height $trans-speed-calc, 
+			border-bottom $trans-speed-calc, padding-top $trans-speed-calc;
 
 		&.stuck {
 			background-color: var(--Header-Color);
 			height: 6rem;
-			border-bottom: 1px solid #828282;
+			border-bottom: 1px solid var(--Border-Color);
+			padding-top: 0;
 			z-index: 2; //Spinny pfp likes to go above the header
-			transition: background-color $trans-speed, height $trans-speed, border-bottom $trans-speed;
+			transition: 
+				background-color $trans-speed, height $trans-speed, 
+				border-bottom $trans-speed, padding-top $trans-speed;
 		}
 
 		span {
