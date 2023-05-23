@@ -1,20 +1,20 @@
 {
-  "name": "rhpidfyre.io",
+  "name": "rhpidfyreio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "npm update && vite",
-    "build": "npm update && vite build",
-    "preview": "npm update && vite preview"
+    "build": "npm update && tsc && vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.3.2"
+    "autoprefixer": "^10.4.14",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.0"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.14",
     "github-calendar": "^2.3.2",
-    "sass": "^1.62.1",
-    "three": "^0.152.2"
+    "sass": "^1.62.0"
   }
 }

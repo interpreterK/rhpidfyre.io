@@ -1,0 +1,34 @@
+@use 'mixins';
+
+@mixin repo-content() {
+	> div {
+		width: 80vw;
+		height: 15vh;
+		
+		div[data-repo-content] {
+			@include mixins.layout(center, center);
+
+			border: 1px solid white {
+				radius: 10px;
+			};
+			width: 50%;
+		}
+	}
+}
+
+@mixin middle-content() {
+	> section {
+		display: grid;
+		
+
+		background-color: var(--main-section-color1);
+		width: 100vw;
+		border-top: 1px solid var(--light-border);
+
+		.mark-link {
+			@include mixins.special-a(.9em, 1px)
+		}
+
+		@include repo-content()
+	}
+}

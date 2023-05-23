@@ -1,0 +1,72 @@
+@use 'modules/header';
+@use 'modules/mixins';
+@use 'modules/repos-contents' as repocontent;
+
+header {
+	@include header.style-nav();
+
+	div[data-topbutton="repos"] > span {
+		width: 90% !important;
+	}
+	div[data-topbutton="home"]:hover > span {
+		@include header.topbar-button-hover(50%)
+	}
+	div[data-topbutton="contact"]:hover > span {
+		@include header.topbar-button-hover(60%)
+	}
+	div[data-topbutton="plans"]:hover > span {
+		@include header.topbar-button-hover(95%)
+	}
+}
+
+main {
+	> h1 {
+		text-align: center;
+		
+	}
+
+	> div { //Topbar
+		@include mixins.layout(center, center, column, 1em);
+		margin: 6rem 0 6rem 0;
+
+		> :is(label, input) {
+			font: {
+				family: var(--Montserrat-font);
+			}
+			color: var(--font-color)
+		}
+		> label {
+			font: {
+				size: 2.5em;
+				weight: bold;
+			}
+		}
+		> input {
+			$trans-time: .7s;
+			$trans-calc: calc($trans-time / 2);
+
+			font-size: 1.5em;
+			background-color: transparent;
+			border: 2px solid {
+				radius: 10px;
+				color: #646464;
+			};
+			padding: {
+				top: .5em;
+				bottom: .5em;
+			};
+			width: 40vw;
+			text-align: center;
+			transition: width $trans-time, border-color $trans-time;
+
+			&:focus {
+				outline: none;
+				width: 60vw;
+				border-color: white;
+				transition: width $trans-calc, border-color $trans-calc;
+			}
+		}		
+	}
+
+	@include repocontent.middle-content();
+}

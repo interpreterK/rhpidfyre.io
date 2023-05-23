@@ -1,0 +1,126 @@
+@use 'modules/mixins';
+
+$light-border: #323232 !default;
+$font-color: #fafafa !default;
+$main-section-color1: #0a0b0e !default;
+$main-background-color: #0a0a0c !default;
+$seperator-color: #23232d !default;
+$span-connect-color: #2d2d37 !default;
+
+// Get this to work
+@media (prefers-color-scheme: light) {
+	$main-background-color: #fff;	
+}
+
+:root {
+	--light-border: #{$light-border};
+	--font-color: #{$font-color};
+	--main-section-color1: #{$main-section-color1};
+	--main-background-color: #{$main-background-color};
+	--seperator-color: #{$seperator-color};
+	--span-connect-color: #{$span-connect-color};
+
+	--Montserrat-font: "Montserrat", sans-serif;
+	--DancingScript-font: "Dancing Script", cursive, sans-serif;
+	--Poppins-font: "Poppins", var(--Montserrat-font, sans-serif);
+	--button-hover-speed: .4s;
+	--MaxWidth-1080p: 1920px;
+	--MaxWidth-1440p: 2560px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	overflow: hidden;
+	background-color: var(--main-background-color);
+}
+button {
+	cursor: pointer;
+	background-color: transparent;
+}
+a {
+	text-decoration: none;
+	color: white;
+}
+h1, h2, h3 {
+	font-family: var(--Montserrat-font);
+	color: var(--font-color);
+}
+
+.highlight {
+	color: #ffff00;
+	font-weight: bold;
+}
+.highlight-blue {
+	color: #00e6e6;
+	font-weight: bold;
+}
+.thin {
+	font-weight: lighter;
+}
+.mark-link {
+	@include mixins.special-a(.9em, 1px)
+}
+
+// Loading Screen
+body.load-trigger-finish {
+	overflow-y: visible;
+}
+
+/*
+	https://loading.io/css/
+	But modified to my liking
+*/
+aside > #loading-window {
+	@include mixins.layout(center, center, column);
+
+	background-color: var(--main-background-color);
+	width: 100vw;
+	height: 100vh;
+	z-index: 9e2;
+	position: fixed;
+  	transition: opacity .5s;
+
+	#loading-anim {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		
+		&::after {
+			content: '';
+			display: block;
+			width: 64px;
+			height: 64px;
+			border: 6px solid #fff {
+				radius: 50%;
+				color: #fff transparent #fff transparent;
+			};
+			animation: loading-anim 1.5s linear infinite;
+		};
+		&::before {
+			content: '';
+			display: block;
+			width: 28px;
+			height: 28px;
+			border: 6px solid #fff {
+				radius: 50%;
+				color: #fff transparent #fff transparent;
+			};
+			position: absolute;
+			animation: loading-anim 2s linear infinite reverse;
+		}
+	}
+}
+
+@keyframes loading-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

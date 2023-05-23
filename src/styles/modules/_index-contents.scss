@@ -1,0 +1,189 @@
+@use 'mixins';
+
+@mixin info-style($max-width: var(--MaxWidth-1440p), $font-size: 1.7em) {
+	font-size: $font-size;
+	margin-bottom: 0;
+	text-align: center;
+	letter-spacing: .5px;
+	max-width: $max-width;
+}
+
+@mixin linux-section-style() {
+	> #linux-section {
+		@include mixins.layout(initial, initial, column);
+
+		> div {
+			> a[href="https://gitlab.freedesktop.org/interpreterK"] {
+				@include mixins.special-a();
+
+				margin-top: 1em;
+				font-family: var(--Poppins-font);
+			}
+			> div {
+				@include mixins.layout(initial, center, row, 2em);
+
+				#linux-tux,
+				#archlinux {
+					width: 180px;
+				}
+			}
+			> h1 {
+				margin: 0;
+			}
+			> h1:nth-of-type(2) {
+				font: {
+					family: var(--Montserrat-font);
+					size: 2em;
+					weight: normal;
+				}
+				letter-spacing: 1px;
+				margin: 0 0 .3em 0;
+			}
+			> h2 {
+				@include info-style(65em);
+			}
+		}
+	}
+}
+
+@mixin NPM-frameworks() {
+	> div {
+		@include mixins.layout(center, center, row, 3em);
+		width: 80em;
+		margin-top: 1em;
+
+		> h1 {
+			font: {
+				family: monospace;
+				size: 8em;
+				weight: lighter;
+			}
+		}
+
+		img {
+			width: 120px;
+		}
+	}
+}
+
+@mixin web-section-style() {
+	> #web-section {
+		@include mixins.layout(center, center, column);
+		margin: 3em 0 0 0;
+
+		> div {
+			max-width: 100em;
+
+			> h1 {
+				@include info-style(initial, 3em);
+			}
+			> h2 {
+				@include info-style();
+				margin-bottom: 3em;
+			}
+		}
+		> div:nth-child(2) {
+			> h1 {
+				font: {
+					family: var(--Poppins-font);
+					size: 2.8em;
+				}
+			}
+
+			@include NPM-frameworks();
+		}
+	}
+}
+
+@mixin game-section-style() {
+	> #game-section {
+		@include mixins.layout(center, center, column);
+		
+		> div {
+			max-width: 100em;
+			
+			> h1 {
+				@include info-style(initial, 3em);
+			}
+			> h2 {
+				@include info-style();
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@mixin middle-content() {
+	.seperator {
+		@include mixins.layout(center, center);
+
+		> span {
+			display: block;
+			width: 90vw;
+			height: .4rem;
+			border-radius: 20px;
+			background-color: var(--seperator-color);
+			margin: 15px 0 15px 0;
+		}
+	}
+
+	> section {
+		background-color: var(--main-section-color1);
+		width: 100vw;
+		border-top: 1px solid var(--light-border);
+		
+		h1 {
+			font-size: 2.5em;
+			margin: 0
+		}
+		h2 {
+			font-weight: normal;
+			margin-top: 0
+		}
+
+		> div { //Version control section
+			@include mixins.layout(space-evenly, center, row);
+
+			margin-top: 3em;
+			max-width: var(--MaxWidth-1440p);
+
+			> div {
+				@include mixins.layout(center, center, column, 1em);
+				text-align: center;
+
+				//Select github and git container
+				> div {
+					@include mixins.layout(initial, initial, row, 2em);
+
+					img {
+						width: 150px;
+					}
+				}
+			}
+		}
+
+		@include linux-section-style();
+		@include web-section-style();
+		@include game-section-style();
+	}
+}
+
+@mixin footer-content() {
+	footer {
+		@include mixins.layout(center, center, column);
+		
+		background-color: black;
+		margin-top: 3em;
+		border-top: 1px solid var(--light-border);
+
+		p {
+			font-family: var(--Poppins-font);
+			color: var(--font-color);
+		}
+		> div {
+			@include mixins.layout(center, center);
+			margin: 1.5em 0 .5em 0;
+			text-align: center;
+		}
+	}
+}

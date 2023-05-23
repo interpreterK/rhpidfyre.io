@@ -1,0 +1,114 @@
+// Mobile layout
+@use './layouts/index-style-mobile.scss';
+// GitHub graph
+@use './github-graph/graph-style.scss';
+
+@use 'modules/mixins';
+@use 'modules/header';
+@use 'modules/index-contents' as indcontent;
+
+$Software-IconSize: 70px;
+
+$Button-Hover-Effect: background-color var(--button-hover-speed, .4s),
+	color var(--button-hover-speed, .4s),
+	border-radius var(--button-hover-speed, .4s);
+
+header {
+	@include header.style-nav();
+
+	div[data-topbutton="home"] > span {
+		width: 50% !important;
+	}
+	div[data-topbutton="repos"]:hover > span {
+		@include header.topbar-button-hover(90%)
+	}
+	div[data-topbutton="contact"]:hover > span {
+		@include header.topbar-button-hover(60%)
+	}
+	div[data-topbutton="plans"]:hover > span {
+		@include header.topbar-button-hover(95%)
+	}
+}
+
+main {
+	@include mixins.layout(center, center, column);
+		
+	> div { //Profile Picture and about my GitHub stuff
+		@include mixins.layout(space-evenly, center, row, 5rem);
+
+		margin: 5rem 0 8rem 0;
+		padding: 10px;
+		max-width: var(--MaxWidth-1080p);
+
+		img {
+			border-radius: 50%;
+			width: 20em;
+			transition: width var(--button-hover-speed);
+
+			&:hover {
+				width: 20.5em;
+				transition: width var(--button-hover-speed);
+			}
+		}
+		> div {
+			@include mixins.layout(center, center, column);
+			max-width: 65rem;
+
+			> :is(h1, h2) {
+				text-align: center;
+				margin: 0;
+			}
+			> h1 {
+				font: {
+					family: var(--DancingScript-font);
+					size: 5em;
+				};
+				margin-bottom: .5em;
+			}
+			> h2 {
+				font-size: 2.5em;
+				margin-bottom: 1em;
+				font-weight: normal;
+
+				> span[data-texttype="software"] {
+					font-weight: bold;
+				}
+				> span[data-texttype="web"] {
+					font-weight: bold;
+				}
+				> span[data-texttype="game"] {
+					font-weight: bold;
+				}
+			}
+			> div {
+				@include mixins.layout(space-evenly, center, row);
+				width: 80%;
+
+				button {
+					font: {
+						family: var(--Montserrat-font);
+						weight: bold;
+						size: 1.3em;
+					}
+					color: var(--font-color);
+					border: 2px solid white;
+					padding: 15px;
+					width: 15em;
+					transition: $Button-Hover-Effect;
+
+					&:hover {
+						background-color: #c8c8c8;
+						color: black;
+						border-radius: 10px;
+						transition: $Button-Hover-Effect;
+					}
+				}
+			}
+		}
+	};
+
+	// Main bottom section
+	@include indcontent.middle-content();
+}
+
+@include indcontent.footer-content();

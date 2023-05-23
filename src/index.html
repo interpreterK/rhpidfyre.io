@@ -1,64 +1,186 @@
 <!DOCTYPE html>
-<!--
-This Soucre Code is licensed under the GPL v. 2.0
--->
 <html lang="en">
+<!--
+	This website is free and open source, "free" as in freedom not price.
+	https://github.com/interpreterK/rhpidfyre.io
+	-interpreterK
+-->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=0">
-	<title>interpreterK's Portfolio | Home</title>
+    <meta property="og:title" content="interpreterK/Brandon's Portfolio">
+    <meta property="og:description" content="https://github.com/interpreterK/rhpidfyre.io">
+    <meta content="#FF0000" data-react-helmet="true" name="theme-color">
+	<title>Brandon's Portfolio - Home</title>
+	<link rel="stylesheet" href="styles/global.scss">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap">
 	<link rel="icon" href="https://avatars.githubusercontent.com/u/80614657" type="image/x-icon">
-	<link rel="stylesheet" href="./styles/index.scss">
+	<link rel="stylesheet" href="styles/index-style.scss">
 </head>
 <body>
+	<aside>
+		<!--Loading-->
+		<div id="loading-window">
+			<div id="loading-anim"></div>
+		</div>
+		<script src="typescript/loading-screen.ts" type="module"></script>
+		<noscript>
+			<style>
+				body {
+					overflow-y: visible;
+				}
+				aside {
+					display: none;
+					opacity: 0;
+				}
+			</style>
+		</noscript>
+	</aside>
 	<header>
-		<div id="header-buttons">
-			<a href="">
-				<button data-head-button="Home">Home</button>
-				<span data-head-span="Home"></span>
+		<div>
+			<a href="index.html">
+				<div data-topbutton="home" class="head-button">
+					<button>Home</button>
+					<span></span>
+				</div>
 			</a>
-			<a href="">
-				<button data-head-button="Repositories">Repositories</button>
-				<span data-head-span="Repositories"></span>
+			<a href="page/Repositories.html">
+				<div data-topbutton="repos" class="head-button">
+					<button>Repositories</button>
+					<span></span>
+				</div>
 			</a>
-			<a href="">
-				<button data-head-button="Contact">Contact</button>
-				<span data-head-span="Contact"></span>
+			<a href="page/Contact.html">
+				<div data-topbutton="contact" class="head-button">
+					<button>Contact</button>
+					<span></span>
+				</div>
+			</a>
+			<a href="page/Contact.html">
+				<div data-topbutton="plans" class="head-button">
+					<button id="pd-logs">Plans / DevLogs</button>
+					<span></span>
+				</div>
 			</a>
 		</div>
 	</header>
-	<script src="./javascript/HeaderStick.js"></script>
 	<main>
-		<!--GitHub PFP & Name, about-->
-		<section id="pfp-name-section">
+		<!--Top-->
+		<div>
+			<a href="https://github.com/interpreterK" target="_blank">
+				<img src="https://avatars.githubusercontent.com/u/80614657" alt="interpreterK's GitHub PFP">
+			</a>
 			<div>
-				<a href="https://github.com/interpreterK" target="_blank" rel="nofollow">
-					<img src="https://avatars.githubusercontent.com/u/80614657" alt="interpreterK's GitHub Proœfile Picture." id="GitHub-pfp">
-				</a>
-			</div>
-			<div>
-				<h1 id="h1-user">interpreterK</h1>
-				<h2 id="h2-user">I'm a programmer with: Software, Web, and Games.</h2>
-			</div>
-			<div class="github-calendar"></div>
-		</section>
-		<!--Bottom Section-->
-		<section id="bottom-section">
-			<div id="web-section">
-				<img src="./public/WebLangsGrid.webp" width="250" height="250" alt="HTML5 Powered" title="HTML5 Powered">
+				<h1>Hey there...</h1>
+				<h2>I'm interpreterK or Brandon. I'm a <span data-texttype="software">Software</span>, <span data-texttype="web">Web</span>, and <span data-texttype="game">Game</span> Developer.</h2>
 				<div>
-					<h1>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h1>
+					<a href="page/Repositories.html">
+						<button>My Repositories</button>
+					</a>
+					<a href="page/Contact.html">
+						<button>Contact Me</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--GNU+Linux Section-->
+		<section>
+			<div>
+				<div>
+					<div>
+						<a href="https://github.com/" target="_blank" rel="nofollow">
+							<img src="/images/github-mark-white.webp" alt="GitHub Mark Logo">
+						</a>
+						<a href="https://git-scm.com/" target="_blank" rel="nofollow">
+							<img src="/images/git-icon.webp" alt="Git Logo">
+						</a>
+					</div>
+					<h1>Version Control</h1>
+					<h2>I use Git, GitHub, and GitLab on a daily basis.</h2>
+				</div>
+				<div class="github-calendar">Loading My GitHub Calendar...</div>
+				<noscript>
+					<style>
+						.github-calendar::after {
+							content: "JavaScript Is Disabled. :(";
+							font-size: 1.5em;
+							color: #c80000;
+						}
+					</style>
+				</noscript>
+			</div>
+			<div class="seperator">
+				<span></span>
+			</div>
+			<div id="linux-section">
+				<div>
+					<div>
+						<a href="https://www.linux.org/" target="_blank" rel="nofollow">
+							<img src="/images/linux-tux.webp" alt="Linux Tux/Penguin" id="linux-tux">
+						</a>
+						<a href="https://archlinux.org/" target="_blank" rel="nofollow">
+							<img src="/images/Arch-linux-logo.webp" alt="Arch Linux Logo" id="archlinux">
+						</a>
+					</div>
+					<h1>Active GNU+Linux Developer</h1>
+					<h1>(Software)</h1>
+					<h2>I program with "<span class="highlight-blue">Python</span>", "<span class="highlight-blue">Lua</span>", "<span class="highlight-blue">C</span>", and "<span class="highlight-blue">C++</span>". I'm a passionate developer about the <a href="https://openssf.org/" target="_blank" rel="nofollow" class="mark-link">Open Source Software Foundation</a>, making the world of computing better, maintainable, flexible, and safer for people.<br>I work with the CLI (Terminal), <a href="https://www.qt.io/" target="_blank" rel="nofollow" class="mark-link">Qt framework</a>, and the <a href="https://kde.org/" target="_blank" rel="nofollow" class="mark-link">KDE Plasma desktop</a>. I've been an active Linux user for <span class="highlight">~3 years</span>.</h2>
+					<a href="https://gitlab.freedesktop.org/interpreterK" target="_blank">https://gitlab.freedesktop.org/interpreterK</a>
+				</div>
+			</div>
+			<div class="seperator">
+				<span></span>
+			</div>
+			<div id="web-section">
+				<div>
+					<h1>Active Web Programmer</h1>
+					<h2>I've been a front-end website programmer for <span class="highlight">~2 years</span>. The website you're seeing now was made with custom frameworks and languages using "<span class="highlight-blue">NPM</span>".<br>I'm most experienced with "<span class="highlight-blue">JavaScript</span>", "<span class="highlight-blue">TypeScript</span>", and "<span class="highlight-blue">SCSS/SASS</span>".</h2>
+				</div>
+				<div>
+					<h1><span class="thin">rhpidfyre.io</span> is made with...</h1>
+					<div>
+						<a href="https://www.npmjs.com/" target="_blank" rel="nofollow">
+							<img src="/images/Npm-logo.webp" alt="NPM Logo">
+						</a>
+						<h1>+</h1>
+						<a href="https://vitejs.dev/" target="_blank" rel="nofollow">
+							<img src="/images/ViteJS-logo.webp" alt="ViteJS Logo">
+						</a>
+						<h1>+</h1>						
+						<a href="https://sass-lang.com/" target="_blank" rel="nofollow">
+							<img src="/images/Sass_logo.webp" alt="Sass Logo">
+						</a>
+						<h1>+</h1>
+						<a href="https://www.typescriptlang.org/" target="_blank" rel="nofollow">
+							<img src="/images/Typescript_logo.webp" alt="TypeScript Logo">
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="seperator">
+				<span></span>
+			</div>
+			<div id="game-section">
+				<div>
+					<h1>Experienced Game Developer</h1>
+					<h2>I'm a game engine developer and gameplay developer, I've been game developing with the programming language "<span class="highlight-blue">Lua</span>" for <span class="highlight">~6 years</span>. I was a competitive programmer, going against other programmers making "anti-death/anti-tamper" scripts and custom client replication for fun, you can think of it as a constant cat and mouse game.</h2>
+					<h2>I'm also the main and only programmer for a game with <span class="highlight">618.5K+</span> plays and still counting.</h2>
 				</div>
 			</div>
 		</section>
+		<!---->
 	</main>
 	<footer>
-		
+		<div>
+			<a href="https://github.com/interpreterK/rhpidfyre.io" target="_blank" rel="nofollow">
+				<p>&copy; code by: rhpidfyre / Brandon</p>
+			</a>
+		</div>
 	</footer>
-
+	<script src="typescript/global-ts/topbar-nav.ts" type="module"></script>
+	<script src="typescript/home-page/home-events.ts" type="module"></script>
 </body>
 </html>

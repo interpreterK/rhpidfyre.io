@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+	This website is free and open source, "free" as in freedom not price.
+	https://github.com/interpreterK/rhpidfyre.io
+	-interpreterK
+-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=0">
+    <meta property="og:title" content="interpreterK/Brandon's Portfolio">
+    <meta property="og:description" content="https://github.com/interpreterK/rhpidfyre.io">
+    <meta content="#FF0000" data-react-helmet="true" name="theme-color">
+	<title>Brandon's Portfolio - Repositories</title>
+	<link rel="stylesheet" href="../styles/global.scss">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap">
+	<link rel="icon" href="https://avatars.githubusercontent.com/u/80614657" type="image/x-icon">
+	<link rel="stylesheet" href="../styles/repos-style.scss">
+</head>
+<body>
+	<aside>
+		<!--Loading-->
+		<div id="loading-window">
+			<div id="loading-anim"></div>
+		</div>
+		<script src="../typescript/loading-screen.ts" type="module"></script>
+		<noscript>
+			<style>
+				body {
+					overflow-y: visible;
+				}
+				aside {
+					display: none;
+					opacity: 0;
+				}
+			</style>
+		</noscript>
+	</aside>
+	<header>
+		<div>
+			<a href="../index.html">
+				<div data-topbutton="home" class="head-button">
+					<button>Home</button>
+					<span></span>
+				</div>
+			</a>
+			<a href="Repositories.html">
+				<div data-topbutton="repos" class="head-button">
+					<button>Repositories</button>
+					<span></span>
+				</div>
+			</a>
+			<a href="Contact.html">
+				<div data-topbutton="contact" class="head-button">
+					<button>Contact</button>
+					<span></span>
+				</div>
+			</a>
+			<a href="Contact.html">
+				<div data-topbutton="plans" class="head-button">
+					<button id="pd-logs">Plans / DevLogs</button>
+					<span></span>
+				</div>
+			</a>
+		</div>
+	</header>
+	<main>
+		<h1>Explore my work through my website, or you can visit my <a href="https://github.com/interpreterK" target="_blank" class="mark-link">GitHub</a>.</h1>
+		<div>
+			<label for="repo-fuzzy-search">Search Repositories...</label>
+			<input type="text" placeholder="Search Query" id="repo-fuzzy-search" name="repo-fuzzy-search">
+		</div>
+		<section>
+			<div>
+				<div data-repo-content>
+					<h1>Yes</h1>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		
+	</footer>
+	<script src="../typescript/global-ts/topbar-nav.ts" type="module"></script>
+</body>
+</html>

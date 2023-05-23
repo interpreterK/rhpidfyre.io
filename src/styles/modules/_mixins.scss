@@ -1,0 +1,38 @@
+@mixin text-gradient($grad-color-1, $grad-color-2) {
+	background: {
+		image: linear-gradient(16deg, $grad-color-1 0%, $grad-color-2 100%);
+		clip: text;
+	};
+	color: transparent;
+}
+
+@mixin layout($justify-content: initial, $align-items: initial, $direction: row, $gap: initial) {
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $direction;
+
+	@if $direction == row { //Short circuits please?
+		column-gap: $gap;
+	} @else {
+		row-gap: $gap;
+	}
+}
+
+@mixin special-a($font-size: 1.5em, $decor-thickness: 1.5px) {
+	font: {
+		family: var(--Montserrat-font);
+		size: $font-size;
+	}
+	text-decoration: underline {
+		thickness: $decor-thickness
+	};
+	letter-spacing: 1px;
+	color: var(--font-color);
+
+	&:active,
+	&:visited,
+	&:link {
+		color: var(--font-color);
+	}
+}
