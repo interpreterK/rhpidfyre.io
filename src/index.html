@@ -15,6 +15,25 @@ This Soucre Code is licensed under the GPL v. 2.0
 	<link rel="stylesheet" href="./styles/index.scss">
 </head>
 <body>
+	<aside>
+		<!--Loading-->
+		<div id="loading-window">
+			<div id="loading-anim"></div>
+		</div>
+		<script src="./javascript/loading_screen.js" type="module"></script>
+		<noscript>
+			<style>
+				body {
+					overflow-y: visible;
+				}
+				aside {
+					display: none;
+					opacity: 0;
+				}
+			</style>
+		</noscript>
+	</aside>
+	<section id="gl-scene"></section>
 	<header>
 		<div id="header-buttons">
 			<a href="">
@@ -31,7 +50,7 @@ This Soucre Code is licensed under the GPL v. 2.0
 			</a>
 		</div>
 	</header>
-	<script src="./javascript/HeaderStick.js"></script>
+	<script src="./javascript/HeaderStick.js" type="module"></script>
 	<main>
 		<!--GitHub PFP & Name, about-->
 		<section id="pfp-name-section">
@@ -43,13 +62,22 @@ This Soucre Code is licensed under the GPL v. 2.0
 			<div>
 				<h1 id="h1-user">interpreterK</h1>
 				<h2 id="h2-user">I'm a programmer with: Software, Web, and Games.</h2>
+				<div class="github-calendar">Loading My GitHub Graph...</div>
+				<script src="./javascript/GitHub_graph.js" type="module"></script>
+				<noscript>
+					<style>
+						.github-calendar::after {
+							content: " [JavaScript is disabled.]";
+							color: red;
+						}
+					</style>
+				</noscript>
 			</div>
-			<div class="github-calendar"></div>
 		</section>
 		<!--Bottom Section-->
 		<section id="bottom-section">
 			<div id="web-section">
-				<img src="./public/WebLangsGrid.webp" width="250" height="250" alt="HTML5 Powered" title="HTML5 Powered">
+				<img src="./public/WebLangsGrid.webp" width="250" height="250" alt="Web Developer" title="I'm a Web Developer.">
 				<div>
 					<h1>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h1>
 				</div>
@@ -59,6 +87,6 @@ This Soucre Code is licensed under the GPL v. 2.0
 	<footer>
 		
 	</footer>
-
+	<script src="./javascript/threeScene.js" type="module"></script>
 </body>
 </html>
