@@ -19,6 +19,12 @@ $Header-Span-hover-time: .8s;
 		width: 100vw;
 		height: 4rem;
 		margin-top: 1em;
+		top: -1px;
+		position: sticky;
+
+		&.stick {
+			
+		}
 
 		span {
 			display: block;
