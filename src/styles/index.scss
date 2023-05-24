@@ -3,6 +3,7 @@
 @use 'modules/global';
 @use 'modules/header';
 @use 'modules/graph';
+@use 'modules/index_bottom_section' as bottom_section;
 
 @include header.topbar-header("Home");
 
@@ -41,37 +42,15 @@ main {
 				}
 			}
 		}
-		//Convert ::after 'pseudo' or ::before to a span block
-		@mixin pseudo-to-span($anim-name, $start-length, $width: auto, $bottom: unset, $color: black) {
-			@keyframes #{$anim-name} {
-				0% {
-					width: $start-length;
-				}
-				100% {
-					width: 0;
-				}
-			}
-			
-			display: block;
-			background-color: $color;
-			width: $width;
-			height: 1.1em;
-			bottom: $bottom; //fix this
-			border: .5px solid white {
-				radius: 10px;
-			};
-			animation: 1s ease-out .5s 1 forwards $anim-name;
-			transition: 2s height .5s;
-		}
 		
 		> div:nth-of-type(2) { //Select the div with my name and github graph
-			margin-top: 10rem;
+			margin-top: 5rem;
 
 			h1, h2 {
 				text-align: center;
 			}
 
-			#h1-user {
+			h1[data-name-switch="1"], h1[data-name-switch="2"] {
 				font: {
 					family: var(--Montserrat-font);
 					size: 3.5em;
@@ -80,14 +59,25 @@ main {
 					bottom: .4em;
 					top: 0;
 				};
-
-				&::after {
-					content: '';
-
-					//@include pseudo-to-span("h1-user-anim", 10em, 10em, 11.3em);
-				}
+				transition: opacity .5s;
 			}
-			
+
+			h1[data-name-switch="2"] {
+				display: none;
+				opacity: 0;
+			}
+
+			#name-hover:hover > h1[data-name-switch="1"] {
+				display: none;
+				opacity: 0;
+				transition: opacity .5s;
+			}
+			#name-hover:hover > h1[data-name-switch="2"] {
+				display: block;
+				opacity: 1;
+				transition: opacity .5s;
+			}
+
 			#h2-user {
 				font: {
 					family: var(--Montserrat-font);
@@ -99,31 +89,32 @@ main {
 		}
 	}
 	
+	> #Stop3DMotion {
+		font: {
+			family: var(--Montserrat-font);
+			weight: bold;
+			size: 1.5rem;
+		};
+		background-color: transparent;
+		color: #828282;
+		border: 1px solid #828282 {
+			radius: 10px;
+		};
+		padding: .4em 2em .4em 2em;
+		bottom: 3%;
+		right: 1%;
+		white-space: nowrap;
+		text-align: center;
+		position: absolute;
+		transition: background-color .5s, color .5s;
 
-	> #bottom-section {
-		@include global.flex-it(center);
-
-		background-color: black;
-		width: 100vw;
-		height: 100vh;
-		border-top: 1px solid var(--Border-Color);
-		margin-top: 7rem;
-
-		&.undim {
-			background-color: var(--Page-Secondary);
+		&:hover {
+			background-color: #b4b4b4e6;
+			color: black;
+			transition: background-color .5s, color .5s, width .3s;
 		}
+	};
 
-		> #web-section {
-			@include global.flex-it(space-evenly, center);
-
-			width: 70vw;
-			height: 40vh;
-
-			h1 {
-				text-align: center;
-			}
-		}
-
-
-	}
+	// Keep this nest cleaned
+	@include bottom_section.bottom-section-styles();
 }

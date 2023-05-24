@@ -30,7 +30,7 @@ $Header-Span-hover-time: .8s;
 			border-bottom $trans-speed-calc, padding-top $trans-speed-calc;
 
 		&.stuck {
-			background-color: var(--Header-Color);
+			background-color: black;
 			height: 6rem;
 			border-bottom: 1px solid var(--Border-Color);
 			padding-top: 0;

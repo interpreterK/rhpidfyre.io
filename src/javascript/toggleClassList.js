@@ -8,6 +8,7 @@ const newToggler = (element, type) => {
 
 // Topbar becomes sticky when scrolling
 newToggler(sticky_header, "stuck")
+// Get this working
 newToggler(bottom_section, "undim")
 
 export {

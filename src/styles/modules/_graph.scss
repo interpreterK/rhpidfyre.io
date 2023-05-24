@@ -12,7 +12,7 @@ $color-calendar-graph-day-L4-bg: #00204d;
     // border: 1px solid #828282 {
     //     radius: 10px;
     // };
-	color: white;
+	color: #c8c8c8;
     padding: 1.5em;
 
     rect.ContributionCalendar-day[data-level='0'] {
@@ -45,7 +45,7 @@ $color-calendar-graph-day-L4-bg: #00204d;
         display: none;
     }
     .js-org-filter-link {
-        color: var(--font-color)
+        color: #c8c8c8;
     }
     //--
     .avatar, .mr-1 { 

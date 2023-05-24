@@ -10,7 +10,7 @@ This Soucre Code is licensed under the GPL v. 2.0
 	<title>interpreterK's Portfolio | Home</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="icon" href="https://avatars.githubusercontent.com/u/80614657" type="image/x-icon">
 	<link rel="stylesheet" href="./styles/index.scss">
 </head>
@@ -59,7 +59,10 @@ This Soucre Code is licensed under the GPL v. 2.0
 				</a>
 			</div>
 			<div>
-				<h1 id="h1-user">interpreterK</h1>
+				<div id="name-hover">
+					<h1 data-name-switch="1">interpreterK</h1>
+					<h1 data-name-switch="2">Brandon</h1>
+				</div>
 				<h2 id="h2-user">I'm a programmer with: Software, Web, and Games.</h2>
 				<div class="github-calendar">Loading My GitHub Graph...</div>
 				<script src="./javascript/GitHub_graph.js" type="module"></script>
@@ -73,12 +76,34 @@ This Soucre Code is licensed under the GPL v. 2.0
 				</noscript>
 			</div>
 		</section>
+		<button id="Stop3DMotion">Stop 3D Motion</button>
 		<!--Bottom Section-->
 		<section id="bottom-section">
-			<div id="web-section">
-				<img src="./public/WebLangsGrid.webp" width="250" height="250" alt="Web Developer" title="I'm a Web Developer.">
-				<div>
-					<h1>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h1>
+			<div id="web-column" class="column">
+				<div id="web-section" class="section">
+					<img src="./public/WebLangsGrid.webp" height="330" alt="Web Developer" title="I'm a Web Developer.">
+					<div>
+						<h1>I'm a Web Developer.</h1>
+						<h2>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h2>
+					</div>					
+				</div>
+			</div>
+			<div id="game-column" class="column">
+				<div id="game-section" class="section">
+					<div>
+						<h1>I'm a Game Developer.</h1>
+						<h2>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h2>
+					</div>
+					<img src="./public/WebLangsGrid.webp" height="330" alt="Game Developer" title="I'm a Game Developer.">
+				</div>
+			</div>
+			<div id="software-column" class="column">
+				<div id="software-section" class="section">
+					<div>
+						<h1>I'm a Software Developer.</h1>
+						<h2>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Odio consequatur optio repellat voluptas perspiciatis sequi! Inventore, perferendis illum error rerum, odit, ea nulla exercitationem quae cupiditate obcaecati, reiciendis culpa et.</h2>
+					</div>
+					<img src="./public/WebLangsGrid.webp" height="330" alt="Game Developer" title="I'm a Game Developer.">
 				</div>
 			</div>
 		</section>
