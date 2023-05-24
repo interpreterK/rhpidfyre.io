@@ -9,10 +9,10 @@
 #gl-scene {
 	width: 100vw;
 	height: 100vh;
-	// user-select: none;
-	// pointer-events: none;
-	// z-index: -1; //This works lol
-	// position: absolute
+	user-select: none;
+	pointer-events: none;
+	z-index: -1; //This works lol
+	position: absolute
 }
 
 main {
@@ -103,11 +103,15 @@ main {
 	> #bottom-section {
 		@include global.flex-it(center);
 
-		background-color: var(--Page-Secondary);
+		background-color: black;
 		width: 100vw;
 		height: 100vh;
 		border-top: 1px solid var(--Border-Color);
 		margin-top: 7rem;
+
+		&.undim {
+			background-color: var(--Page-Secondary);
+		}
 
 		> #web-section {
 			@include global.flex-it(space-evenly, center);

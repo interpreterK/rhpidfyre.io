@@ -42,6 +42,11 @@ button {
 	border: 0;
 }
 
+::selection {
+	background-color: #f0f0f0;
+	color: black;
+}
+
 //Loading screen
 /*
 	https://loading.io/css/

@@ -3,12 +3,21 @@ import { OrbitControls } from "three/addons/controls/OrbitControls"
 
 const WebGL_Canvas = document.getElementById("gl-scene")
 
-const WebGL_Renderer = new THREE.WebGLRenderer({antialias: false})
+const WebGL_Renderer = new THREE.WebGLRenderer({antialias: true})
 
 const Scene  = new THREE.Scene()
 const Camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, .1, 1000)
 
-const Camera_Controls = new OrbitControls(Camera, WebGL_Canvas)
+let Delta = 0
+const rad = (x) => x*Math.PI/180
+const g = () => {
+    Delta+=1
+    Camera.position.y = Math.cos(Delta/800)*3
+    Camera.rotation.z = Math.sin(Delta/1500)
+    Camera.rotation.x = -.5
+    requestAnimationFrame(g)
+}
+g()
 
 // const CreateCube = (Geometry) => {
 // 	const Geometry = new THREE.BoxGeometry()
@@ -18,13 +27,11 @@ const Camera_Controls = new OrbitControls(Camera, WebGL_Canvas)
 // 	return Limb_Mesh
 // }
 
-const AxesHelper = new THREE.AxesHelper(5)
-const GridHelper = new THREE.GridHelper(3,3)
+const GridHelper = new THREE.GridHelper(100,30,0xf5d2ff,0xf5d2ff)
 
-Scene.add(AxesHelper, GridHelper)
+Scene.add(GridHelper)
 
 WebGL_Renderer.setAnimationLoop((delta) => {
-	Camera_Controls.update()
 	WebGL_Renderer.render(Scene, Camera)
 })
 
