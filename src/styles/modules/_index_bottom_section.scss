@@ -45,7 +45,7 @@
 				@include global.flex-it(space-between, center);
 
 				width: inherit;
-				max-width: 1150px;
+				max-width: 1400px;
 
 				> div {
 					max-width: 700px;
@@ -53,6 +53,8 @@
 			}
 		}
 
-
+		#game-section {
+			max-width: 1150px;
+		}
 	}
 }

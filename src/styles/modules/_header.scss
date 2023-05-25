@@ -42,16 +42,10 @@ $Header-Span-hover-time: .8s;
 
 		span {
 			display: block;
-			background-color: black;
+			background-color: white;
 			width: 1em;
 			height: 2px;
 			transition: width $Header-Span-hover-time;
-		}
-
-		@media (prefers-color-scheme: dark) {
-			span {
-				background-color: white;
-			}
 		}
 
 		a {
