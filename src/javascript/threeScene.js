@@ -9,11 +9,32 @@ const WebGL_Renderer = new THREE.WebGLRenderer({antialias: true})
 const Scene  = new THREE.Scene()
 const Camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, .1, 1000)
 
-let Delta = 0
 let NoMotion = reduced_Motion.matches
 
 const randleft_right = () => Math.round(Math.random()*1) == 1
 let lr_Side = randleft_right()
+
+const lerp = (start,end,t) => start*(1-t)+end*t
+let Delta = 0
+
+const SphereGeometry = new THREE.SphereGeometry(40, 30, 18)
+const SphereMaterial = new THREE.MeshBasicMaterial({wireframe: true, color: 0x808080})
+const Sphere = new THREE.Mesh(SphereGeometry, SphereMaterial)
+
+const CameraAnim = () => {
+    if (!NoMotion) {
+        Delta += 1
+        Sphere.rotation.y = Math.sin(Delta/1e3)+2
+    } else {
+        Camera.position.y = lerp(Camera.position.y,3,.1)
+        Camera.rotation.z = lerp(Camera.rotation.z,0,.1)
+        Delta = 0
+    }
+    requestAnimationFrame(CameraAnim)
+}
+
+Sphere.rotation.z = 3
+Sphere.position.set(50,-10,-20)
 
 if (NoMotion) {
     stop_Motion.style.width = "330px"
@@ -38,26 +59,12 @@ stop_Motion.addEventListener("click", () => {
     }
 }, false)
 
-Scene.add(new THREE.GridHelper(100,30,0x969696,0x969696))
+Scene.add(Sphere)
 WebGL_Renderer.setAnimationLoop((_) => WebGL_Renderer.render(Scene, Camera))
 
 Camera.rotation.x = -.5
 Camera.position.y = 3
 
-const lerp = (start,end,t) => start*(1-t)+end*t
-
-const CameraAnim = () => {
-    if (!NoMotion) {
-        Delta += 1
-        Camera.position.y = 2+Math.cos(Delta/800)
-        Camera.rotation.z = lr_Side && Math.sin(Delta/1500) || -Math.sin(Delta/1500)
-    } else {
-        Camera.position.y = lerp(Camera.position.y,3,.1)
-        Camera.rotation.z = lerp(Camera.rotation.z,0,.1)
-        Delta = 0
-    }
-    requestAnimationFrame(CameraAnim)
-}
 CameraAnim()
 
 window.addEventListener("resize", () => {
