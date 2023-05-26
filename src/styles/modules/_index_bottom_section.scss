@@ -25,7 +25,7 @@
 			@include global.flex-it(center, center);
 
 			width: inherit;
-			height: 40vh;
+			height: 25rem;
 			margin-bottom: 3em;
 
 			h1 {
@@ -55,6 +55,9 @@
 
 		#game-section {
 			max-width: 1150px;
+		}
+		#software-section {
+			max-width: 1100px;
 		}
 	}
 }
