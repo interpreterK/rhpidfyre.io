@@ -2,8 +2,8 @@
 	--Montserrat-font: "Montserrat", sans-serif;
 	--Lato-font: "Lato", sans-serif;
 
-	--Page-Secondary: #0a0a0f;
-	--Page-even-Secondary: #14141c;
+	--Page-Secondary: rgb(10, 10, 10);
+	--Page-even-Secondary: rgb(15, 15, 20);
 	--Border-Color: #828282;
 }
 
@@ -46,6 +46,17 @@ button {
 
 h1, h2, button {
 	color: white
+}
+
+a {
+	color: white;
+	
+	&:hover,
+	&:link,
+	&:active,
+	&:hover {
+		color: white;
+	}
 }
 
 ::selection {

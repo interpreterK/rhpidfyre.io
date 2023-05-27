@@ -50,40 +50,24 @@ main {
 				text-align: center;
 			}
 
-			h1[data-name-switch="1"], h1[data-name-switch="2"] {
-				font: {
-					family: var(--Montserrat-font);
-					size: 3.5em;
+			#name-hover {
+				//My name
+				> h1 {
+					font: {
+						family: var(--Montserrat-font);
+						size: 3.5em;
+					}
+					margin: 0;
 				}
-				margin: {
-					bottom: .4em;
-					top: 0;
-				};
-				mix-blend-mode: difference;
-				transition: opacity .5s;
-			}
-
-			h1[data-name-switch="2"] {
-				opacity: 0;
-				position: absolute;
-			}
-
-			#name-hover:hover > h1[data-name-switch="1"] {
-				opacity: 0;
-				transition: opacity .5s;
-			}
-			#name-hover:hover > h1[data-name-switch="2"] {
-				opacity: 1;
-				transition: opacity .5s;
 			}
 
 			#h2-user {
 				font: {
 					family: var(--Montserrat-font);
 					size: 1.5em;
-					weight: normal;
+					weight: bold;
 				}
-				margin-top: 0;
+				margin: 1em 0 0 0;
 			}
 		}
 	}
@@ -114,6 +98,6 @@ main {
 		}
 	};
 
-	// Keep this nest cleaned
+	// *try* Keep this nest cleaned
 	@include bottom_section.bottom-section-styles();
 }

@@ -70,10 +70,10 @@ $Header-Span-hover-time: .8s;
 					font-weight: bold;
 				}
 				span[data-head-span=#{$active-button-selection}] {
-					width: 12em;
+					width: 21em;
 				}
 			} @else {
-				@include hover-span("Repositories", 12em);
+				@include hover-span("Repositories", 21em);
 			}
 
 			@if $active-button-selection == "Contact" {

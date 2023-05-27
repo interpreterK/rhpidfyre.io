@@ -11,9 +11,6 @@ const Camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHei
 
 let NoMotion = reduced_Motion.matches
 
-const randleft_right = () => Math.round(Math.random()*1) == 1
-let lr_Side = randleft_right()
-
 const lerp = (start,end,t) => start*(1-t)+end*t
 let Delta = 0
 
@@ -24,38 +21,39 @@ const Sphere = new THREE.Mesh(SphereGeometry, SphereMaterial)
 const CameraAnim = () => {
     if (!NoMotion) {
         Delta += 1
-        Sphere.rotation.y = Math.sin(Delta/1e3)+2
+        Sphere.rotation.y = Math.sin(Delta/1e3)
     } else {
-        Camera.position.y = lerp(Camera.position.y,3,.1)
-        Camera.rotation.z = lerp(Camera.rotation.z,0,.1)
+        Sphere.rotation.y = lerp(Sphere.rotation.y,0,.1)
         Delta = 0
     }
     requestAnimationFrame(CameraAnim)
 }
 
-Sphere.rotation.z = 3
-Sphere.position.set(50,-10,-20)
-
-if (NoMotion) {
+const ToggleMotion = () => {
     stop_Motion.style.width = "330px"
     stop_Motion.innerHTML = "Toggle 3D Motion"
 }
+const StopMotion = () => {
+    stop_Motion.style.width = "285px"
+    stop_Motion.innerHTML = "Stop 3D Motion"
+}
+
+Sphere.rotation.z = 3
+Sphere.position.set(50,-10,-20)
+
+if (NoMotion) ToggleMotion()
 
 reduced_Motion.addEventListener("change", () => {
     NoMotion = true
-    stop_Motion.style.width = "330px"
-    stop_Motion.innerHTML = "Toggle 3D Motion"
+    ToggleMotion()
 }, false)
 
 stop_Motion.addEventListener("click", () => {
     NoMotion = !NoMotion
-    if (NoMotion) {
-        stop_Motion.style.width = "330px"
-        stop_Motion.innerHTML = "Toggle 3D Motion"
-    } else {
-        lr_Side = randleft_right()
-        stop_Motion.style.width = "285px"
-        stop_Motion.innerHTML = "Stop 3D Motion"
+    if (NoMotion) 
+        ToggleMotion() 
+    else {
+        StopMotion()
     }
 }, false)
 
