@@ -12,6 +12,8 @@ const Camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHei
 let NoMotion = reduced_Motion.matches
 
 const lerp = (start,end,t) => start*(1-t)+end*t
+let RandomSide = Math.round(Math.random()*1)==1
+
 let Delta = 0
 
 const SphereGeometry = new THREE.SphereGeometry(40, 30, 18)
@@ -21,10 +23,11 @@ const Sphere = new THREE.Mesh(SphereGeometry, SphereMaterial)
 const CameraAnim = () => {
     if (!NoMotion) {
         Delta += 1
-        Sphere.rotation.y = Math.sin(Delta/1e3)
+        Sphere.rotation.y = RandomSide && -Math.sin(Delta/1e3) || Math.sin(Delta/1e3)
     } else {
-        Sphere.rotation.y = lerp(Sphere.rotation.y,0,.1)
+        Sphere.rotation.set(0, lerp(Sphere.rotation.y,0,.1), 0)
         Delta = 0
+        RandomSide = Math.round(Math.random()*1)==1
     }
     requestAnimationFrame(CameraAnim)
 }
