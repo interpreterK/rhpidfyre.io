@@ -26,6 +26,7 @@
 
 html {
 	color-scheme: light dark;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -51,10 +52,7 @@ h1, h2, button {
 a {
 	color: white;
 	
-	&:hover,
-	&:link,
-	&:active,
-	&:hover {
+	&:hover, &:link, &:active, &:hover {
 		color: white;
 	}
 }
