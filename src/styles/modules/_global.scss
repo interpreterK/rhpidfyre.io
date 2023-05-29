@@ -1,16 +1,8 @@
-:root {
-	--Montserrat-font: "Montserrat", sans-serif;
-	--Lato-font: "Lato", sans-serif;
-
-	--Page-Secondary: rgb(10, 10, 10);
-	--Page-even-Secondary: rgb(15, 15, 20);
-	--Border-Color: #828282;
-}
-
 @function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
 	@return min($min-vw, $min-max);
 }
 
+//This will spam some unset's in the final css, idk how to make sass/scss ignore a property completely as of 5/28/23
 @mixin flex-it($justify: unset, $align: unset, $direction: row, $gap: unset) {
 	display: flex;
 	justify-content: $justify;
@@ -24,9 +16,24 @@
 	}
 }
 
+:root {
+	--Montserrat-font: "Montserrat", sans-serif;
+	--Lato-font: "Lato", sans-serif;
+
+	--Page-Secondary: #0a0a0a;
+	--Page-even-Secondary: #0f0f14;
+	--Border-Color: #828282;
+	--White-Hover: #e1e1e1; //I guess bright is too bright
+}
+
 html {
 	color-scheme: light dark;
 	scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion) {
+	html {
+		scroll-behavior: auto;
+	}
 }
 
 body {
@@ -68,10 +75,10 @@ a {
 	But modified to my liking
 */
 @keyframes loading-anim {
-	0% {
+	from {
 		transform: rotate(0deg);
 	}
-	100% {
+	to {
 		transform: rotate(360deg);
 	}
 }

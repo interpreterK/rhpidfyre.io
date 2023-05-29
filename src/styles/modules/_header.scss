@@ -97,7 +97,6 @@ $Header-Span-hover-time: .8s;
 			background-color: transparent;
 			padding: .4em 0 .4em 0;
 		}
-
 		> #header-buttons {
 			@include global.flex-it(space-evenly);
 			width: global.real-viewbox(70vw);

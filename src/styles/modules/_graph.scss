@@ -1,3 +1,5 @@
+@use 'global';
+
 $color-calendar-graph-day-bg: #323241;
 $color-calendar-graph-day-L1-bg: #0069ff;
 $color-calendar-graph-day-L2-bg: #004ab3;
@@ -53,22 +55,18 @@ $color-calendar-graph-day-L4-bg: #00204d;
         height: 30px;
         top: 12px;
         position: relative;
-        border: 1px solid #aaaaaa {
+        border: 1px solid currentColor {
             radius: 10px;
         };
         padding: .2em;
     }
     .width-full {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include global.flex-it(center, center);
+
         margin-top: .5em;
     }
     .subnav { //Contribution icons and titles
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 2em;
+        @include global.flex-it(center, center, row, 2em);
     }
     div[aria-hidden="true"] {
         font-weight: normal;
