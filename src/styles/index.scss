@@ -35,7 +35,6 @@ main {
 				transform: rotate(360deg);
 				transition: width .5s, transform 1.5s;
 			}
-
 			@media (prefers-reduced-motion) {
 				&:hover {
 					transform: rotate(0deg) !important;

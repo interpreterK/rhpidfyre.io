@@ -21,7 +21,7 @@
 	--Lato-font: "Lato", sans-serif;
 
 	--Page-Secondary: #0a0a0a;
-	--Page-even-Secondary: #0f0f14;
+	--Page-even-Secondary: #000000;
 	--Border-Color: #828282;
 	--White-Hover: #e1e1e1; //I guess bright is too bright
 }
@@ -104,9 +104,9 @@ aside > #loading-window {
 			display: block;
 			width: 64px;
 			height: 64px;
-			border: 6px solid #fff {
+			border: 6px solid currentColor {
 				radius: 50%;
-				color: #fff transparent #fff transparent;
+				color: currentColor transparent currentColor transparent;
 			};
 			animation: loading-anim 1.5s linear infinite;
 		};

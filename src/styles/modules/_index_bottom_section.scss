@@ -2,6 +2,89 @@
 
 @use 'global';
 
+@mixin regular-column-sections() {
+	.column {
+		@include global.flex-it(center, center);
+
+		width: inherit;
+		height: 30rem;
+		margin-bottom: 3em;
+
+		button {
+			font-size: 1.5rem;
+			border: 1px solid currentColor {
+				radius: 10px
+			};
+			padding: .4em 2em .4em 2em;
+			margin-top: 1em;
+			background-color: transparent;
+			transition: background-color .4s, color .4s;
+
+			&:hover {
+				background-color: var(--White-Hover);
+				color: black;
+				transition: background-color .4s, color .4s;
+			}
+		}
+
+		> .section {
+			@include global.flex-it(space-between, center);
+
+			width: inherit;
+			max-width: 1400px;
+
+			> div {
+				max-width: 50rem;
+			}
+		}
+	}
+}
+
+@mixin special-column-sections() {
+	.column-special {
+		@include global.flex-it(center, center);
+		
+		width: inherit;
+		height: 20rem;
+		margin: 3em 0 2em 0;
+
+		h1 {
+			margin-top: 0;
+		}
+		h2 {
+			letter-spacing: .7px;
+
+			> b {
+				font-size: 1.1em;
+			}
+		}
+
+		button { //Down arrow
+			font-size: 3rem;
+			background-color: transparent;
+			top: 0;
+			position: relative;
+			transition: top .5s;
+
+			&:hover {
+				top: .2em;
+				transition: top 1s;
+			}
+		}
+
+		> .section {
+			@include global.flex-it(space-between, center, column);
+
+			width: inherit;
+			text-align: center;
+
+			> div {
+				max-width: 1120px;
+			}
+		}
+	}
+}
+
 @mixin bottom-section-styles() {
 	> #bottom-section {
 		@include global.flex-it(center, center, column);
@@ -9,7 +92,7 @@
 		background-color: var(--Page-Secondary);
 		width: 100vw;
 		border-top: 1px solid var(--Border-Color);
-		margin-top: 7rem;
+		margin-top: 6.5rem;
 		padding-top: 3em;
 
 		> div:nth-of-type(even) {
@@ -21,115 +104,41 @@
 			pointer-events: none;
 		}
 
-		.column {
-			@include global.flex-it(center, center);
-
-			width: inherit;
-			height: 30rem;
-			margin-bottom: 3em;
-
-			h1 {
-				font: {
-					family: var(--Montserrat-font);
-					size: 2.4em;
-				}
-			}
-			h2 {
-				font: {
-					family: var(--Lato-font);
-					weight: normal;
-				}
-			}
-			button {
-				font: {
-					size: 1.5rem;
-				}
-				border: 1px solid currentColor {
-					radius: 10px
-				};
-				padding: .4em 2em .4em 2em;
-				margin-top: 1em;
-				background-color: transparent;
-				transition: background-color .4s, color .4s;
-
-				&:hover {
-					background-color: var(--White-Hover);
-					color: black;
-					transition: background-color .4s, color .4s;
-				}
-			}
-
-			> .section {
-				@include global.flex-it(space-between, center);
-
-				width: inherit;
-				max-width: 1400px;
-
-				> div {
-					max-width: 50rem;
-				}
+		h1 {
+			font: {
+				family: var(--Montserrat-font);
+				size: 2.4em;
 			}
 		}
 
-		.column-special {
-			@include global.flex-it(center, center);
-			
-			width: inherit;
-			height: 20rem;
-			margin: 3em 0 4em 0;
-
-			h1 {
-				font: {
-					family: var(--Montserrat-font);
-					size: 2.4em;
-				}
-				margin-top: 0;
-			}
-			h2 {
-				font: {
-					family: var(--Lato-font);
-					weight: normal;
-				}
-				letter-spacing: .7px;
-
-				> b {
-					font-size: 1.1em;
-				}
-			}
-
-			button { //Down arrow
-				font-size: 3rem;
-				background-color: transparent;
-				top: 0;
-				position: relative;
-				transition: top .5s;
-
-				&:hover {
-					top: .3em;
-					transition: top 1s;
-				}
-			}
-
-			> .section {
-				@include global.flex-it(space-between, center, column);
-
-				width: inherit;
-				text-align: center;
-
-				> div {
-					max-width: 1120px;
-				}
+		h2 {
+			font: {
+				family: var(--Lato-font);
+				weight: normal;
 			}
 		}
-
+		
+		@include regular-column-sections();
+		@include special-column-sections();
+		
 		#web-section {
 			max-width: 1300px;
 		}
 		#game-section {
 			max-width: 1150px;
 		}
-		#software-section {
-			max-width: 1100px;
+
+		#software-column {
+			margin: 0;
+			border-bottom: 1px solid var(--Border-Color);
+
+			> #software-section {
+				max-width: 1100px;
+			}
+		}
+		#linux-column {
+			background-color: black;
+			margin: 0;
 		}
 	}
 }
