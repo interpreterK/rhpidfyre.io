@@ -8,7 +8,6 @@
 
 		width: inherit;
 		height: 30rem;
-		margin-bottom: 3em;
 
 		button {
 			font-size: 1.5rem;
@@ -31,11 +30,7 @@
 			@include global.flex-it(space-between, center);
 
 			width: inherit;
-			max-width: 1400px;
-
-			> div {
-				max-width: 50rem;
-			}
+			max-width: 1000px;
 		}
 	}
 }
@@ -121,21 +116,6 @@
 		@include regular-column-sections();
 		@include special-column-sections();
 		
-		#web-section {
-			max-width: 1300px;
-		}
-		#game-section {
-			max-width: 1150px;
-		}
-
-		#software-column {
-			margin: 0;
-			border-bottom: 1px solid var(--Border-Color);
-
-			> #software-section {
-				max-width: 1100px;
-			}
-		}
 		#linux-column {
 			background-color: black;
 			margin: 0;
