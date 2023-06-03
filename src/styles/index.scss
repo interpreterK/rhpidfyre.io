@@ -17,10 +17,10 @@
 }
 
 main {
-	@include global.flex-it(center, center, column);
+	@include global.flex(center, center, column, unset, true);
 
 	> #pfp-name-section {
-		@include global.flex-it(space-evenly, center, row);
+		@include global.flex(space-evenly, center, row);
 
 		width: global.real-viewbox(95vw);
 		height: 80vh;

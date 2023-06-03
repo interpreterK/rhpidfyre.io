@@ -3,16 +3,34 @@
 }
 
 //This will spam some unset's in the final css, idk how to make sass/scss ignore a property completely as of 5/28/23
-@mixin flex-it($justify: unset, $align: unset, $direction: row, $gap: unset) {
-	display: flex;
-	justify-content: $justify;
-	align-items: $align;
-	flex-direction: $direction;
-
-	@if $direction == row { //Short circuits please?
-		column-gap: $gap;
+//fixed above, ig.
+@mixin flex($justify: unset, $align: unset, $direction: row, $gap: unset, $force-flexbox: false) {
+	//instead of flex-direction be specified "grid" can be used as a replacement for-
+	//-"flex-direction: column" since grid automatically is columns, and "flex" can be used to replace "flex-direction: row"-
+	//-and since flex is automatically rows.
+	//!yay less css junk on the final build now.
+	@if $direction == row or $force-flexbox == true {
+		display: flex;
+		
+		@if $gap != unset {
+			column-gap: $gap;
+		}
+		@if $force-flexbox == true {
+			flex-direction: $direction;
+		}
 	} @else {
-		row-gap: $gap;
+		display: grid; //note: this is just a hacky solution
+
+		@if $gap != unset {
+			gap: $gap;
+		}
+	}
+
+	@if $justify != unset {
+		justify-content: $justify;
+	}
+	@if $align != unset {
+		align-items: $align;
 	}
 }
 
@@ -21,7 +39,7 @@
 	--Lato-font: "Lato", sans-serif;
 
 	--Page-Secondary: #0a0a0a;
-	--Page-even-Secondary: #000000;
+	--Page-even-Secondary: #050505;
 	--Border-Color: #828282;
 	--White-Hover: #e1e1e1; //I guess bright is too bright
 }
@@ -84,7 +102,7 @@ a {
 }
 
 aside > #loading-window {
-	@include flex-it(center, center, column);
+	@include flex(center, center, column);
 
 	background-color: black;
 	width: 100vw;
@@ -94,7 +112,7 @@ aside > #loading-window {
   	transition: opacity .5s;
 
 	#loading-anim {
-		@include flex-it(center, center);
+		@include flex(center, center);
 
 		width: 80px;
 		height: 80px;

@@ -4,10 +4,10 @@
 
 @mixin regular-column-sections() {
 	.column {
-		@include global.flex-it(center, center);
+		@include global.flex(center, center);
 
 		width: inherit;
-		height: 30rem;
+		height: 40rem;
 
 		button {
 			font-size: 1.5rem;
@@ -27,20 +27,28 @@
 		}
 
 		> .section {
-			@include global.flex-it(space-between, center);
+			@include global.flex(space-between, center);
 
 			width: inherit;
 			max-width: 1000px;
+
+			h2 {
+				letter-spacing: 1px;
+			}
+
+			> div {
+				@include global.flex(center, center, column);
+			}
 		}
 	}
 }
 
 @mixin special-column-sections() {
 	.column-special {
-		@include global.flex-it(center, center);
+		@include global.flex(center, center);
 		
 		width: inherit;
-		height: 20rem;
+		height: 30rem;
 		margin: 3em 0 2em 0;
 
 		h1 {
@@ -49,12 +57,12 @@
 		h2 {
 			letter-spacing: .7px;
 
-			> b {
+			> strong {
 				font-size: 1.1em;
 			}
 		}
 
-		button { //Down arrow
+		button { //Down arrow,
 			font-size: 3rem;
 			background-color: transparent;
 			top: 0;
@@ -68,13 +76,23 @@
 		}
 
 		> .section {
-			@include global.flex-it(space-between, center, column);
+			display: grid;
+			justify-content: center;
 
 			width: inherit;
 			text-align: center;
 
 			> div {
+				display: grid;
+
 				max-width: 1120px;
+
+				h1 {
+					margin: 0 0 1rem 0;
+				}
+				> a {
+					margin-top: 3em;
+				}
 			}
 		}
 	}
@@ -82,7 +100,7 @@
 
 @mixin bottom-section-styles() {
 	> #bottom-section {
-		@include global.flex-it(center, center, column);
+		@include global.flex(center, center, column);
 		
 		background-color: var(--Page-Secondary);
 		width: 100vw;

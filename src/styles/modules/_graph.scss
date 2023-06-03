@@ -61,12 +61,12 @@ $color-calendar-graph-day-L4-bg: #00204d;
         padding: .2em;
     }
     .width-full {
-        @include global.flex-it(center, center);
+        @include global.flex(center, center);
 
         margin-top: .5em;
     }
     .subnav { //Contribution icons and titles
-        @include global.flex-it(center, center, row, 2em);
+        @include global.flex(center, center, row, 2em);
     }
     div[aria-hidden="true"] {
         font-weight: normal;
