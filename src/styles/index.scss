@@ -4,6 +4,7 @@
 @use 'modules/header';
 @use 'modules/graph';
 @use 'modules/index_bottom_section' as bottom_section;
+@use 'modules/footer';
 
 @include header.topbar-header("Home");
 
@@ -34,9 +35,8 @@ main {
 				width: 340px;
 				transform: rotate(360deg);
 				transition: width .5s, transform 1.5s;
-			}
-			@media (prefers-reduced-motion) {
-				&:hover {
+
+				@media (prefers-reduced-motion) {
 					transform: rotate(0deg) !important;
 				}
 			}
@@ -73,4 +73,8 @@ main {
 
 	// *try* Keep this nest cleaned
 	@include bottom_section.bottom-section-styles();
+}
+
+footer {
+	@include footer.styling();
 }

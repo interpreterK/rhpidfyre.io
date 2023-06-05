@@ -1,36 +1,42 @@
 @use 'global';
 
-$color-calendar-graph-day-bg: #323241;
-$color-calendar-graph-day-L1-bg: #0069ff;
-$color-calendar-graph-day-L2-bg: #004ab3;
-$color-calendar-graph-day-L3-bg: #003580;
-$color-calendar-graph-day-L4-bg: #00204d;
-
 .github-calendar {
+    --color-calendar-graph-day-bg: #323241;
+    --color-calendar-graph-day-L1-bg: #0069ff;
+    --color-calendar-graph-day-L2-bg: #004ab3;
+    --color-calendar-graph-day-L3-bg: #003580;
+    --color-calendar-graph-day-L4-bg: #00204d;
+
+    @media (prefers-color-scheme: light) {
+        --color-calendar-graph-day-bg: #{global.tolight(50, 50, 65, 3)};
+        --color-calendar-graph-day-L1-bg: #{global.tolight(0, 105, 255, 1.6)};
+        --color-calendar-graph-day-L2-bg: #{global.tolight(0, 74, 179, 2)};
+        --color-calendar-graph-day-L3-bg: #{global.tolight(0, 53, 128, 3)};
+        --color-calendar-graph-day-L4-bg: #{global.tolight(0, 32, 77, 2)};
+    }
+
     font: {
         family: var(--Montserrat-font);
         weight: bold;
     }
-    // border: 1px solid #828282 {
-    //     radius: 10px;
-    // };
+
 	color: #c8c8c8;
     padding: 1.5em;
 
     rect.ContributionCalendar-day[data-level='0'] {
-        fill: $color-calendar-graph-day-bg;
+        fill: var(--color-calendar-graph-day-bg);
     }
     rect.ContributionCalendar-day[data-level='1'] {
-        fill: $color-calendar-graph-day-L1-bg;
+        fill: var(--color-calendar-graph-day-L1-bg);
     }
     rect.ContributionCalendar-day[data-level='2'] {
-        fill: $color-calendar-graph-day-L2-bg;
+        fill: var(--color-calendar-graph-day-L2-bg);
     }
     rect.ContributionCalendar-day[data-level='3'] {
-        fill: $color-calendar-graph-day-L3-bg;
+        fill: var(--color-calendar-graph-day-L3-bg);
     }
     rect.ContributionCalendar-day[data-level='4'] {
-        fill: $color-calendar-graph-day-L4-bg;
+        fill: var(--color-calendar-graph-day-L4-bg);
     }
     text { //Hide days of the week within the calendar
         display: none
@@ -49,6 +55,15 @@ $color-calendar-graph-day-L4-bg: #00204d;
     .js-org-filter-link {
         color: #c8c8c8;
     }
+
+    @media (prefers-color-scheme: light) {
+        color: #1e1e1e;
+
+        .js-org-filter-link {
+            color: #1e1e1e;
+        }
+    }
+
     //--
     .avatar, .mr-1 { 
         width: 30px;

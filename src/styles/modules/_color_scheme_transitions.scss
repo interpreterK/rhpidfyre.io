@@ -1,0 +1,32 @@
+//Transitions for toggling from light mode to dark or vise versa,
+//Helps just keep the main stuff organized.
+$color-scheme-transition: .5s;
+
+//This will only cover most of the visible areas like the top and middle section
+body {
+	transition: background-color $color-scheme-transition;
+}
+
+header span {
+	transition: background-color $color-scheme-transition;
+}
+
+#pfp-name-section :is(h1, h2) {
+	transition: color $color-scheme-transition;
+}
+
+//GitHub graph
+.github-calendar {
+	@for $i from 0 through 4 {
+		$i_to_istr: "'" + #{$i} + "'";
+		rect.ContributionCalendar-day[data-level=#{$i_to_istr}] {
+			transition: fill $color-scheme-transition;
+		}
+	}
+
+	.js-org-filter-link {
+		transition: color $color-scheme-transition;
+	}
+
+	transition: color $color-scheme-transition;
+}

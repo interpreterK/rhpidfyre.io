@@ -39,6 +39,10 @@ $Header-Span-hover-time: .8s;
 			transition: 
 				background-color $trans-speed, height $trans-speed, 
 				border-bottom $trans-speed, padding-top $trans-speed;
+
+			@media (prefers-color-scheme: light) {
+				background-color: rgba(200, 200, 200, 0.901960784314);
+			}
 		}
 
 		span {
@@ -47,8 +51,12 @@ $Header-Span-hover-time: .8s;
 			width: 1em;
 			height: 2px;
 			transition: width $Header-Span-hover-time;
-		}
 
+			@media (prefers-color-scheme: light) {
+				background-color: black;
+			}
+		}
+		
 		a {
 			@include global.flex(center, center, column, unset, true);
 			text-decoration: none;

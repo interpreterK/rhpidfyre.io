@@ -5,7 +5,7 @@ import {
 } from 'three'
 
 const NewScene = (Node) => {
-	const GL_Renderer_container = new WebGLRenderer({antialias: true})
+	const GL_Renderer_container = new WebGLRenderer({antialias: true, alpha: true})
 	const GLScene = new Scene()
 	const Camera = new PerspectiveCamera(70, window.innerWidth/window.innerHeight, .1, 1000)
 

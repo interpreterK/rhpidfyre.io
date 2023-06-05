@@ -1,5 +1,17 @@
+@use 'sass:math';
+@use 'color_scheme_transitions';
+
 @function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
 	@return min($min-vw, $min-max);
+}
+
+//convert preset dark colors for the light mode
+@function tolight($c1,$c2,$c3, $scope: 1.5) { //must take rgb values
+    $c1_cl: math.clamp(0, math.round(calc($c1 * $scope)), 255);
+    $c2_cl: math.clamp(0, math.round(calc($c2 * $scope)), 255);
+    $c3_cl: math.clamp(0, math.round(calc($c3 * $scope)), 255);
+
+    @return rgb($c1_cl,$c2_cl,$c3_cl)
 }
 
 //This will spam some unset's in the final css, idk how to make sass/scss ignore a property completely as of 5/28/23
@@ -40,6 +52,7 @@
 
 	--Page-Secondary: #0a0a0a;
 	--Page-even-Secondary: #050505;
+	--Page-light-scheme: #e6e6e6;
 	--Border-Color: #828282;
 	--White-Hover: #e1e1e1; //I guess bright is too bright
 }
@@ -47,10 +60,9 @@
 html {
 	color-scheme: light dark;
 	scroll-behavior: smooth;
-}
-@media (prefers-reduced-motion) {
-	html {
-		scroll-behavior: auto;
+
+	@media (prefers-reduced-motion) {
+		scroll-behavior: auto;	
 	}
 }
 
@@ -71,7 +83,8 @@ button {
 }
 
 h1, h2, button {
-	color: white
+	color: white;
+	transition: color 1s;
 }
 
 a {
@@ -85,6 +98,27 @@ a {
 ::selection {
 	background-color: #f0f0f0;
 	color: black;
+}
+
+@media (prefers-color-scheme: light) {
+	::selection {
+		background-color: #323232;
+		color: #f0f0f0;
+	}
+
+	body {
+		background-color: var(--Page-light-scheme);
+	}
+	h1, h2, button {
+		color: black
+	}
+	a {
+		color: black;
+		
+		&:hover, &:link, &:active, &:hover {
+			color: black;
+		}
+	}
 }
 
 //Loading screen
@@ -110,6 +144,10 @@ aside > #loading-window {
 	z-index: 9e2;
 	position: fixed;
   	transition: opacity .5s;
+
+  	@media (prefers-color-scheme: light) {
+  		background-color: #c8c8c8;
+  	}
 
 	#loading-anim {
 		@include flex(center, center);
