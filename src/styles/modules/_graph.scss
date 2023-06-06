@@ -1,6 +1,11 @@
 @use 'global';
 
 .github-calendar {
+    > p {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
     --color-calendar-graph-day-bg: #323241;
     --color-calendar-graph-day-L1-bg: #0069ff;
     --color-calendar-graph-day-L2-bg: #004ab3;
@@ -69,11 +74,11 @@
         width: 30px;
         height: 30px;
         top: 12px;
-        position: relative;
         border: 1px solid currentColor {
             radius: 10px;
         };
         padding: .2em;
+        position: relative;
     }
     .width-full {
         @include global.flex(center, center);

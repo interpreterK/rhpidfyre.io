@@ -29,12 +29,14 @@ main {
 		#GitHub-pfp {
 			border-radius: 50%;
 			width: 330px;
-			transition: width .5s, transform 1s;
+			opacity: .8;
+			transition: width .5s, transform 1s, opacity 1s;
 			
 			&:hover {
 				width: 340px;
 				transform: rotate(360deg);
-				transition: width .5s, transform 1.5s;
+				opacity: 1;
+				transition: width .5s, transform 1.5s, opacity 1s;
 
 				@media (prefers-reduced-motion) {
 					transform: rotate(0deg) !important;

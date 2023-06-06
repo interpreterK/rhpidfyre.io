@@ -15,6 +15,14 @@ header span {
 	transition: color $color-scheme-transition;
 }
 
+#bottom-section > div {
+	transition: background-color $color-scheme-transition;
+
+	h1, h2, button {
+		transition: color $color-scheme-transition;
+	}
+}
+
 //GitHub graph
 .github-calendar {
 	@for $i from 0 through 4 {
