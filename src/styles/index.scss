@@ -1,7 +1,7 @@
 @use 'modules/global';
 @use 'modules/header';
 @use 'modules/index_page/main'; //prioritize over graph styling
-@use 'modules/graph';
+@use 'modules/index_page/graph';
 @use 'modules/footer';
 @use 'modules/index_page/color_scheme_transitions';
 
