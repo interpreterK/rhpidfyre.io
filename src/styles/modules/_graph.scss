@@ -29,6 +29,7 @@
     padding: 1.5em;
 
     rect.ContributionCalendar-day[data-level='0'] {
+        opacity: .5;
         fill: var(--color-calendar-graph-day-bg);
     }
     rect.ContributionCalendar-day[data-level='1'] {
@@ -81,12 +82,12 @@
         position: relative;
     }
     .width-full {
-        @include global.flex(center, center);
+        @include global.layout(center, center);
 
         margin-top: .5em;
     }
     .subnav { //Contribution icons and titles
-        @include global.flex(center, center, row, 2em);
+        @include global.layout(center, center, row, 2em);
     }
     div[aria-hidden="true"] {
         font-weight: normal;

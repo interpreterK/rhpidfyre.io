@@ -1,0 +1,71 @@
+@use '../global';
+@use './index_middle_section' as middle_section;
+@use './index_bottom_section' as bottom_section;
+
+#top-level-gl-scene {
+	width: 100vw;
+	height: 10rem;
+	user-select: none;
+	pointer-events: none;
+	z-index: -1; //This works lol
+	position: absolute
+}
+
+main {
+	@include global.layout(center, center, column, unset, true);
+
+	> #pfp-name-section {
+		@include global.layout(space-evenly, center, row);
+
+		width: global.real-viewbox(95vw);
+		height: 80vh;
+	
+		#GitHub-pfp {
+			border-radius: 50%;
+			width: 330px;
+			transition: width .5s, transform 1s;
+			
+			&:hover {
+				width: 340px;
+				transform: rotate(360deg);
+				transition: width .5s, transform 1.5s;
+
+				@media (prefers-reduced-motion) {
+					transform: rotate(0deg) !important;
+				}
+			}
+		}
+		
+		> div:nth-of-type(2) { //Select the div with my name and github graph
+			margin-top: 5rem;
+
+			h1, h2 {
+				text-align: center;
+			}
+
+			#name-hover {
+				//My name
+				> h1 {
+					font: {
+						family: var(--Montserrat-font);
+						size: 3.5em;
+					}
+					margin: 0;
+				}
+			}
+
+			#h2-user {
+				font: {
+					family: var(--Montserrat-font);
+					size: 1.5em;
+					weight: bold;
+				}
+				margin: 1em 0 0 0;
+			}
+		}
+	}
+
+	// *try* Keep this nest cleaned
+	@include middle_section.import-styles();
+	@include bottom_section.import-styles();
+}

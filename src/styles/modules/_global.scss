@@ -1,5 +1,4 @@
 @use 'sass:math';
-@use 'color_scheme_transitions';
 
 @function real-viewbox($min-vw, $min-max: calc(1920px / 1.3)) {
 	@return min($min-vw, $min-max);
@@ -16,7 +15,7 @@
 
 //This will spam some unset's in the final css, idk how to make sass/scss ignore a property completely as of 5/28/23
 //fixed above, ig.
-@mixin flex($justify: unset, $align: unset, $direction: row, $gap: unset, $force-flexbox: false) {
+@mixin layout($justify: unset, $align: unset, $direction: row, $gap: unset, $force-flexbox: false) {
 	//instead of flex-direction be specified "grid" can be used as a replacement for-
 	//-"flex-direction: column" since grid automatically is columns, and "flex" can be used to replace "flex-direction: row"-
 	//-and since flex is automatically rows.
@@ -49,12 +48,21 @@
 :root {
 	--Montserrat-font: "Montserrat", sans-serif;
 	--Lato-font: "Lato", sans-serif;
-
 	--Page-Secondary: #0a0a0a;
 	--Page-even-Secondary: #050505;
 	--Page-light-scheme: #e6e6e6;
 	--Border-Color: #828282;
 	--White-Hover: #e1e1e1; //I guess bright is too bright
+}
+
+::selection {
+	background-color: #f0f0f0;
+	color: black;
+
+	@media (prefers-color-scheme: light) {
+		background-color: #323232;
+		color: #f0f0f0;
+	}
 }
 
 html {
@@ -71,6 +79,7 @@ body {
 	box-sizing: border-box;
 	overflow: hidden;
 	background-color: black;
+	text-rendering: optimizeSpeed;
 
 	&.load-trigger-finish {
 		overflow-y: visible;
@@ -95,17 +104,7 @@ a {
 	}
 }
 
-::selection {
-	background-color: #f0f0f0;
-	color: black;
-}
-
 @media (prefers-color-scheme: light) {
-	::selection {
-		background-color: #323232;
-		color: #f0f0f0;
-	}
-
 	body {
 		background-color: var(--Page-light-scheme);
 	}
@@ -136,7 +135,7 @@ a {
 }
 
 aside > #loading-window {
-	@include flex(center, center, column);
+	@include layout(center, center, column);
 
 	background-color: black;
 	width: 100vw;
@@ -150,7 +149,7 @@ aside > #loading-window {
   	}
 
 	#loading-anim {
-		@include flex(center, center);
+		@include layout(center, center);
 
 		width: 80px;
 		height: 80px;

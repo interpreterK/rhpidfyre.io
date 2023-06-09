@@ -13,12 +13,12 @@ $Header-Span-hover-time: .8s;
 	}
 }
 
-@mixin topbar-header($active-button-selection) {
+@mixin topbar-header-active($active-button-selection) {
 	$trans-speed: .5s;
 	$trans-speed-calc: calc($trans-speed / 2);
 
 	header {
-		@include global.flex(center, center);
+		@include global.layout(center, center);
 		width: 100vw;
 		height: 4rem;
 		padding-top: 1em;
@@ -58,7 +58,7 @@ $Header-Span-hover-time: .8s;
 		}
 		
 		a {
-			@include global.flex(center, center, column, unset, true);
+			@include global.layout(center, center, column, unset, true);
 			text-decoration: none;
 
 			//Hax
@@ -108,7 +108,7 @@ $Header-Span-hover-time: .8s;
 		}
 		
 		> #header-buttons {
-			@include global.flex(space-evenly);
+			@include global.layout(space-evenly);
 			width: global.real-viewbox(70vw);
 		}
 	}

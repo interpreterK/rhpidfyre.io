@@ -1,10 +1,8 @@
-// Keep the index.scss a *bit* cleaner
-
-@use 'global';
+@use '../global';
 
 @mixin regular-column-sections() {
 	.column {
-		@include global.flex(center, center);
+		@include global.layout(center, center);
 
 		width: inherit;
 		height: 40rem;
@@ -27,7 +25,7 @@
 		}
 
 		> .section {
-			@include global.flex(space-between, center, row, 5em);
+			@include global.layout(space-between, center, row, 5em);
 
 			width: inherit;
 			max-width: 1200px;
@@ -45,7 +43,7 @@
 
 @mixin special-column-sections() {
 	.column-special {
-		@include global.flex(center, center);
+		@include global.layout(center, center);
 		
 		width: inherit;
 		height: 30rem;
@@ -62,51 +60,37 @@
 			}
 		}
 
-		button { //Down arrow,
-			font-size: 3rem;
-			background-color: transparent;
-			top: 0;
-			position: relative;
-			transition: top .5s;
-
-			&:hover {
-				top: .2em;
-				transition: top 1s;
-			}
-		}
-
 		> .section {
-			display: grid;
-			justify-content: center;
+			@include global.layout(center);
 
 			width: inherit;
 			text-align: center;
 
 			> div {
 				display: grid;
-
 				max-width: 1120px;
 
 				h1 {
 					margin: 0 0 1rem 0;
-				}
-				> a {
-					margin-top: 3em;
 				}
 			}
 		}
 	}
 }
 
-@mixin bottom-section-styles() {
-	> #bottom-section {
-		@include global.flex(center, center, column);
-		
+@mixin import-styles() {
+	> #middle-section {
+		@include global.layout(center, center, column);
+
 		background-color: var(--Page-Secondary);
 		width: 100vw;
-		border-top: 1px solid var(--Border-Color);
 		margin-top: 6.5rem;
-		padding-top: 3em;
+			
+		$border-c: 1px solid var(--Border-Color);
+		border: {
+			top: $border-c;
+			bottom: $border-c;
+		};
 
 		@media (prefers-color-scheme: light) {
 			background-color: #f0f0f0;

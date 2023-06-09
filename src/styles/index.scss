@@ -1,82 +1,8 @@
-//hi i like flexboxes;
-
 @use 'modules/global';
 @use 'modules/header';
+@use 'modules/index_page/main'; //prioritize over graph styling
 @use 'modules/graph';
-@use 'modules/index_bottom_section' as bottom_section;
 @use 'modules/footer';
+@use 'modules/index_page/color_scheme_transitions';
 
-@include header.topbar-header("Home");
-
-#gl-scene {
-	width: 100vw;
-	height: 10rem;
-	user-select: none;
-	pointer-events: none;
-	z-index: -1; //This works lol
-	position: absolute
-}
-
-main {
-	@include global.flex(center, center, column, unset, true);
-
-	> #pfp-name-section {
-		@include global.flex(space-evenly, center, row);
-
-		width: global.real-viewbox(95vw);
-		height: 80vh;
-	
-		#GitHub-pfp {
-			border-radius: 50%;
-			width: 330px;
-			opacity: .8;
-			transition: width .5s, transform 1s, opacity 1s;
-			
-			&:hover {
-				width: 340px;
-				transform: rotate(360deg);
-				opacity: 1;
-				transition: width .5s, transform 1.5s, opacity 1s;
-
-				@media (prefers-reduced-motion) {
-					transform: rotate(0deg) !important;
-				}
-			}
-		}
-		
-		> div:nth-of-type(2) { //Select the div with my name and github graph
-			margin-top: 5rem;
-
-			h1, h2 {
-				text-align: center;
-			}
-
-			#name-hover {
-				//My name
-				> h1 {
-					font: {
-						family: var(--Montserrat-font);
-						size: 3.5em;
-					}
-					margin: 0;
-				}
-			}
-
-			#h2-user {
-				font: {
-					family: var(--Montserrat-font);
-					size: 1.5em;
-					weight: bold;
-				}
-				margin: 1em 0 0 0;
-			}
-		}
-	}
-
-	// *try* Keep this nest cleaned
-	@include bottom_section.bottom-section-styles();
-}
-
-footer {
-	@include footer.styling();
-}
+@include header.topbar-header-active("Home");
