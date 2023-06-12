@@ -5,7 +5,7 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls'
 
-//Multiple render support is here!
+//Multi-render support is here!
 const Loaded_Renderers = []
 
 const NewScene = class {
@@ -14,7 +14,7 @@ const NewScene = class {
 		this.UsingCamera = UsingCamera
 	}
 
-	makeRender(aa = true, alp = true) {
+	makeRender(sizeX = window.innerWidth, sizeY = window.innerHeight, aa = true, alp = true) {
 		const GL_Renderer_container = new WebGLRenderer({antialias: aa, alpha: alp})
 		this.Node.appendChild(GL_Renderer_container.domElement)
 
@@ -29,13 +29,13 @@ const NewScene = class {
 
 		GL_Renderer_container.setAnimationLoop((_) => {
 			if (this.UsingCamera) {
-				Controls.update()	
+				Controls.update()
 			}
 			GL_Renderer_container.render(GLScene, Camera)
 		})
 		GL_Renderer_container.setPixelRatio(window.devicePixelRatio)
-		GL_Renderer_container.setSize(window.innerWidth, window.innerHeight)
-		
+		GL_Renderer_container.setSize(sizeX, sizeY)
+
 		Loaded_Renderers.push({
 			GL_Renderer_container: GL_Renderer_container,
 			Camera: Camera,
@@ -50,10 +50,10 @@ const NewScene = class {
 }
 
 window.addEventListener("resize", () => {
-	for (const v of Loaded_Renderers) {
-		v.Camera.aspect = window.innerWidth/window.innerHeight
-		v.Camera.updateProjectionMatrix()
-		v.GL_Renderer_container.setSize(window.innerWidth, window.innerHeight)
+	for (const render of Loaded_Renderers) {
+		render.Camera.aspect = window.innerWidth/window.innerHeight
+		render.Camera.updateProjectionMatrix()
+		render.GL_Renderer_container.setSize(window.innerWidth, window.innerHeight)
 	}
 }, false)
 
