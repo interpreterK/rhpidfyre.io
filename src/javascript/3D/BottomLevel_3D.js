@@ -12,7 +12,7 @@ const GLTF_Loader = new GLTFLoader()
 const GLTF = async (GLTF_FILE) => new Promise((resolve, _) => GLTF_Loader.load(GLTF_FILE, (gltf_obj) => resolve(gltf_obj))).catch((reason) => console.error(reason))
 
 const load_3D_text = async () => {
-    const _3Dtext = await GLTF("/3D/3D_Text.gltf")
+    const _3Dtext = await GLTF("../3D/3D_Text.gltf")
     let _3D_text_obj
 
     _3Dtext.scene.traverse((g_data) => {

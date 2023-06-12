@@ -30,12 +30,17 @@ Camera.position.y = 3
 GLScene.add(Sphere)
 
 const load_3D_scene = async () => {
-    const GLTF_Text = await load_3D_text()
-
-    AnimMan.StartAnimations({
-        Sphere: Sphere,
-        _3D_text_obj: GLTF_Text 
-    })
+    let GLTF_Text
+    try {
+        GLTF_Text = await load_3D_text()
+    } catch(e) {
+        console.warn("Animation manager/Scene loader: Failed to get the GLTF or something... Thrown error by JS:", e)
+    } finally {
+        AnimMan.StartAnimations({
+            Sphere: Sphere,
+            _3D_text_obj: GLTF_Text 
+        })
+    }
 }
 
 load_3D_scene()
