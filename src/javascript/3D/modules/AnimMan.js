@@ -30,7 +30,7 @@ const StartAnimations = (Objs) => {
 		//A bug on chromium? but it prevents starting this function with "requestAnimationFrame"
 		//Firefox starts it just fine, common firefox W as always
 		//requestAnimationFrame(Animations)
-		Animations()
+		Animations() //chromium bug!
 	} else {
 		console.warn("[Animation Manager]: Animations are already running.")
 	}
