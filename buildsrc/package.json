@@ -1,0 +1,14 @@
+{
+  "name": "rhpidfyre.io-build",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm update && vite",
+    "build": "npm update && vite build",
+    "preview": "npm update && vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}
