@@ -3,6 +3,8 @@
 #if your on Linux,
 #sudo chmod +x build_server.sh
 
+#start a local server and debug the browser production versions
+
 cd ./src/
 npm run build
 cd ../
