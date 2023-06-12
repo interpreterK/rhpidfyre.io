@@ -82,7 +82,7 @@ body {
 	text-rendering: optimizeSpeed;
 
 	&.load-trigger-finish {
-		overflow-y: visible;
+		overflow: hidden visible;
 	}
 }
 
@@ -134,7 +134,7 @@ a {
 	}
 }
 
-aside > #loading-window {
+loading-screen > #loading-window {
 	@include layout(center, center, column);
 
 	background-color: black;

@@ -66,6 +66,6 @@ main {
 	}
 
 	// *try* Keep this nest cleaned
-	@include middle_section.import-styles();
-	@include bottom_section.import-styles();
+	@include middle_section.import-styles;
+	@include bottom_section.import-styles;
 }

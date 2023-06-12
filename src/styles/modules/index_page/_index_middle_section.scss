@@ -1,6 +1,6 @@
 @use '../global';
 
-@mixin regular-column-sections() {
+@mixin regular-column-sections {
 	.column {
 		@include global.layout(center, center);
 
@@ -41,7 +41,7 @@
 	}
 }
 
-@mixin special-column-sections() {
+@mixin special-column-sections {
 	.column-special {
 		@include global.layout(center, center);
 		
@@ -78,7 +78,7 @@
 	}
 }
 
-@mixin import-styles() {
+@mixin import-styles {
 	> #middle-section {
 		@include global.layout(center, center, column);
 
@@ -123,7 +123,7 @@
 			}
 		}
 		
-		@include regular-column-sections();
-		@include special-column-sections();
+		@include regular-column-sections;
+		@include special-column-sections;
 	}
 }

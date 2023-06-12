@@ -1,6 +1,6 @@
 @use '../global';
 
-@mixin import-styles() {
+@mixin import-styles {
 	> #gl-bottom-section {
 		background-color: black;
 		width: 100vw;
