@@ -1,10 +1,10 @@
 //loading element for the HTML, keeps it standing out
-class loadingscreen extends HTMLDivElement {
+const loadingscreen = class extends HTMLElement {
 	constructor() {
 		super()
 	}
 }
-customElements.define("loading-screen", loadingscreen, {extends: "div"})
+customElements.define("loading-screen", loadingscreen)
 
 const Loading_window = document.getElementById("loading-window")
 const Loading_text = document.getElementById("loading-text")
