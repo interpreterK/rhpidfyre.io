@@ -30,10 +30,15 @@
 			flex-direction: $direction;
 		}
 	} @else {
-		display: grid; //note: this is just a hacky solution
+		display: grid;
 
 		@if $gap != unset {
 			gap: $gap;
+		}
+		@if $justify == center {
+			> * {
+				margin-inline: auto;
+			}
 		}
 	}
 
