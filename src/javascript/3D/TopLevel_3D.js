@@ -4,7 +4,7 @@ import {
     Mesh,
 } from 'three'
 import { NewScene } from './modules/CreateRender'
-import { load_3D_text } from './BottomLevel_3D'
+// import { load_3D_text } from './BottomLevel_3D'
 import * as AnimMan from './modules/AnimMan'
 
 const WebGL_Canvas       = document.getElementById("top-level-gl-scene")
@@ -30,17 +30,10 @@ Camera.position.y = 3
 GLScene.add(Sphere)
 
 const load_3D_scene = async () => {
-    let GLTF_Text
-    try {
-        GLTF_Text = await load_3D_text()
-    } catch(e) {
-        console.warn("Animation manager/Scene loader: Failed to get the GLTF or something... Thrown error by JS:", e)
-    } finally {
-        AnimMan.StartAnimations({
-            Sphere: Sphere,
-            _3D_text_obj: GLTF_Text 
-        })
-    }
+    AnimMan.StartAnimations({
+        Sphere: Sphere,
+        // _3D_text_obj: GLTF_Text 
+    })
 }
 
 load_3D_scene()

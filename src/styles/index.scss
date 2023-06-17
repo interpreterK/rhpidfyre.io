@@ -1,8 +1,8 @@
 @use 'modules/global';
-@use 'modules/header';
+// @use 'modules/header';
 @use 'modules/index_page/main'; //prioritize over graph styling
 @use 'modules/index_page/graph';
 @use 'modules/footer';
 @use 'modules/index_page/color_scheme_transitions';
 
-@include header.topbar-header-active("Home");
+// @include header.topbar-header-active("Home");

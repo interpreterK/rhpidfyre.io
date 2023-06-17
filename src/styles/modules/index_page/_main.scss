@@ -1,6 +1,6 @@
 @use '../global';
-@use './index_middle_section' as middle_section;
-@use './index_bottom_section' as bottom_section;
+// @use './index_middle_section' as middle_section;
+// @use './index_bottom_section' as bottom_section;
 
 #top-level-gl-scene {
 	width: 100vw;
@@ -13,12 +13,33 @@
 
 main {
 	@include global.layout(center, center, column, unset, true);
+	height: 100vh;
+
+	> #_404-area {
+		@include global.layout(center, center, column);
+
+		> h1 {
+			font: {
+				family: var(--Montserrat-font);
+				size: 8rem
+			}
+			margin: 0 auto 0;
+		}
+		> h2 {
+			font: {
+				family: var(--Montserrat-font);
+				size: 1.8rem;
+				weight: normal;
+			}
+		}
+	}
 
 	> #pfp-name-section {
 		@include global.layout(space-evenly, center, row);
 
 		width: global.real-viewbox(95vw);
-		height: 80vh;
+		// height: 80vh;
+		margin-top: 5rem;
 	
 		#GitHub-pfp {
 			border-radius: 50%;
@@ -65,7 +86,7 @@ main {
 		}
 	}
 
-	// *try* Keep this nest cleaned
-	@include middle_section.import-styles;
-	@include bottom_section.import-styles;
+	// // *try* Keep this nest cleaned
+	// @include middle_section.import-styles;
+	// @include bottom_section.import-styles;
 }

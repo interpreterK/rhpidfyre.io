@@ -48,21 +48,9 @@ This Soucre Code is licensed under the GPL v. 2.0
 				margin: 0;
 				letter-spacing: 1px;
 			}
-			/*Would be triggered with JS by header.stuck*/
-			header {
-				background-color: #0a0a0ae6;
-				backdrop-filter: blur(10px);
-				height: 6rem;
-				border-bottom: 1px solid var(--Border-Color);
-				padding-top: 0;
-				z-index: 2;
-			}
 			@media (prefers-color-scheme: light) {
 				#noscript-head {
 					background-color: #787878;
-				}
-				header {
-					background-color: #c8c8c8e6;		
 				}
 			}
 		</style>
@@ -70,23 +58,11 @@ This Soucre Code is licensed under the GPL v. 2.0
 			<h1>JavaScript is recommended to be enabled.</h1>		
 		</a>
 	</noscript>
-	<header id="intersection-obs">
-		<div id="header-buttons">
-			<a href="">
-				<button data-head-button="Home">Home</button>
-				<span data-head-span="Home"></span>
-			</a>
-			<a href="">
-				<button data-head-button="Repositories">Repositories / Projects</button>
-				<span data-head-span="Repositories"></span>
-			</a>
-			<a href="">
-				<button data-head-button="Contact">Contact</button>
-				<span data-head-span="Contact"></span>
-			</a>
-		</div>
-	</header>
 	<main>
+		<section id="_404-area">
+			<h1>404</h1>
+			<h2>The page you are looking for does not exist or is under construction...</h2>
+		</section>
 		<!--GitHub PFP & Name, about-->
 		<section id="pfp-name-section">
 			<div>
@@ -113,63 +89,10 @@ This Soucre Code is licensed under the GPL v. 2.0
 				</noscript>
 			</div>
 		</section>
-		<!--Middle Section-->
-		<section id="middle-section">
-			<div class="column-special">
-				<div class="section">
-					<div>
-						<h1>My username is: "interpreterK" but, my real name is Brandon.</h1>
-						<h2><strong>Who am i...</strong> I am a passionate and continuously learning computer programmer. Some examples of my goals are to make the world of computing faster, better, easier, and more flexible.</h2>
-						<h2><strong>About me...</strong> I gravitate mostly towards software and the Linux space</h2>
-					</div>
-				</div>
-			</div>
-			<div id="web-column" class="column">
-				<div id="web-section" class="section">
-					<img src="/Images/Browsers.webp" height="250" alt="Web Developer" title="I'm a Web Developer.">
-					<div>
-						<h1>I'm a Web Developer.</h1>
-						<h2>I have been an active web developer for approximately three years. The tools I utilize include "<a href="https://www.npmjs.com/" target="_blank">npm</a>", and I commonly work with packages such as "<a href="https://vitejs.dev/" target="_blank">Vite</a>", "<a href="https://sass-lang.com/" target="_blank">Scss/Sass</a>", "<a href="https://github.com/postcss/autoprefixer" target="_blank">Autoprefixer</a>", and "<a href="https://threejs.org/" target="_blank">ThreeJS</a>". The website you are currently viewing has been developed using these packages and frameworks.</h2>
-						<a href="">
-							<button>Explore My Web Projects &#10095;</button>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div id="game-column" class="column">
-				<div id="game-section" class="section">
-					<div>
-						<h1>I'm also a Game Developer.</h1>
-						<h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga voluptas, odit. Sed doloribus, doloremque expedita saepe pariatur, at tempora enim repellendus iste, praesentium non nihil quibusdam eaque facilis? Natus, molestias.</h2>
-						<a href="">
-							<button>Explore My Game Projects &#10095;</button>
-						</a>
-					</div>
-					<img src="/Images/Lua-Logo.webp" height="230" alt="Game Developer" title="I'm a Game Developer.">
-				</div>
-			</div>
-			<div id="software-column" class="column">
-				<div id="software-section" class="section">
-					<img src="/Images/Python.webp" height="230" alt="Software Developer" title="I'm a Software Developer.">
-					<div>
-						<h1>Software Developer.</h1>
-						<h2>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Expedita commodi deserunt sunt beatae iste, optio accusantium, vitae laudantium consectetur eveniet ducimus nesciunt error aperiam, dignissimos fuga mollitia animi maiores nemo?</h2>
-						<a href="">
-							<button>Explore My Software Projects &#10095;</button>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--bottom section-->
-		<section id="gl-bottom-section">
-			
-		</section>
 	</main>
 	<footer>
 		
 	</footer>
-	<script src="/javascript/toggleClassList.js" type="module"></script>
 	<script src="/javascript/3D/TopLevel_3D.js" type="module"></script>
 </body>
 </html>
