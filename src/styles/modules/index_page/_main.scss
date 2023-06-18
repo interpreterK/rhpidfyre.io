@@ -24,12 +24,20 @@ main {
 				size: 8rem
 			}
 			margin: 0 auto 0;
+			text: {
+				align: center;
+				shadow: 10px 10px #505050; 
+			}
 		}
 		> h2 {
 			font: {
 				family: var(--Montserrat-font);
 				size: 1.8rem;
 				weight: normal;
+			}
+			text: {
+				align: center;
+				wrap: balance
 			}
 		}
 	}
@@ -89,4 +97,12 @@ main {
 	// // *try* Keep this nest cleaned
 	// @include middle_section.import-styles;
 	// @include bottom_section.import-styles;
+}
+
+@media (width < 1280px) {
+	main {
+		> #pfp-name-section {
+			display: none
+		}
+	}
 }
